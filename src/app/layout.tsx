@@ -1,0 +1,46 @@
+import type { Metadata } from "next";
+import { IBM_Plex_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import "./globals.css";
+
+// Only two weights — Light for labels/body, Regular for headlines
+const ibmPlexMonoLight = IBM_Plex_Mono({
+  weight: "300",
+  variable: "--font-ibm-plex-mono-light",
+  subsets: ["latin"],
+});
+
+const ibmPlexMonoRegular = IBM_Plex_Mono({
+  weight: "400",
+  variable: "--font-ibm-plex-mono-regular",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Sudharshan - Portfolio",
+  description: "Full Stack + Frontend Developer & UI/UX Designer",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${ibmPlexMonoLight.variable} ${ibmPlexMonoRegular.variable} antialiased transition-colors duration-300`}
+        style={{ fontFamily: "var(--font-ibm-plex-mono-light), monospace", fontWeight: 300 }}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}

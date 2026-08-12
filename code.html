@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sudharshan S - Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-secondary": "#003919",
+                "tertiary-container": "#ffb47f",
+                "surface-container-lowest": "#09100a",
+                "surface": "#050505",
+                "background": "#050505",
+                "on-background": "#F5F5F5",
+                "outline": "rgba(255,255,255,0.15)",
+                "on-primary-fixed": "#00210c",
+                "secondary": "#A5A5A5",
+                "secondary-fixed-dim": "#9bd4a5",
+                "surface-container-low": "#111111",
+                "surface-container": "#111111",
+                "on-primary-container": "#005e2d",
+                "surface-dim": "#050505",
+                "inverse-surface": "#dde5da",
+                "on-secondary-fixed-variant": "#1a512d",
+                "on-primary-fixed-variant": "#005227",
+                "surface-container-highest": "#161616",
+                "tertiary": "#ffd9c1",
+                "primary-container": "#4ade80",
+                "tertiary-fixed-dim": "#ffb784",
+                "on-surface": "#F5F5F5",
+                "primary": "#6bfb9a",
+                "inverse-primary": "#006d36",
+                "on-secondary-fixed": "#00210c",
+                "on-error": "#690005",
+                "on-secondary-container": "#8ac294",
+                "on-tertiary-fixed": "#301400",
+                "secondary-fixed": "#b6f0bf",
+                "on-error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#6c3a0f",
+                "on-tertiary": "#4f2500",
+                "surface-container-high": "#161616",
+                "surface-bright": "#333b34",
+                "secondary-container": "#1a512d",
+                "outline-variant": "rgba(255,255,255,0.15)",
+                "primary-fixed-dim": "#4de082",
+                "surface-tint": "#4de082",
+                "primary-fixed": "#6dfe9c",
+                "inverse-on-surface": "#2b322b",
+                "error-container": "#93000a",
+                "on-primary": "#003919",
+                "surface-variant": "#111111",
+                "error": "#ffb4ab",
+                "on-tertiary-container": "#794418",
+                "tertiary-fixed": "#ffdcc6",
+                "on-surface-variant": "#A5A5A5"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "2xl": "20px",
+                "full": "9999px"
+        },
+        "spacing": {
+                "element-gap": "8px",
+                "section-margin": "48px",
+                "grid-gap": "16px",
+                "container-padding": "24px"
+        },
+        "fontFamily": {
+                "label-mono": [
+                        "JetBrains Mono"
+                ],
+                "headline-lg": [
+                        "Space Grotesk"
+                ],
+                "code-sm": [
+                        "JetBrains Mono"
+                ],
+                "body-base": [
+                        "Space Grotesk"
+                ],
+                "display-lg": [
+                        "Space Grotesk"
+                ],
+                "title-md": [
+                        "Space Grotesk"
+                ],
+                "headline-lg-mobile": [
+                        "Space Grotesk"
+                ]
+        },
+        "fontSize": {
+                "label-mono": [
+                        "14px",
+                        {
+                                "lineHeight": "1.5",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "code-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-base": [
+                        "16px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "title-md": [
+                        "20px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "1.1",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    body {
+        background-color: #050505;
+        color: #F5F5F5;
+    }
+    .bento-card {
+        background-color: #111111;
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+    .bento-card:hover {
+        border-color: rgba(255,255,255,0.3);
+        transform: translateY(-4px);
+        background-color: #161616;
+        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+    .arrow-btn {
+        transition: transform 0.3s ease;
+    }
+    .bento-card:hover .arrow-btn {
+        transform: rotate(45deg);
+    }
+    .tool-icon {
+        transition: transform 0.2s ease;
+    }
+    .bento-card:hover .tool-icon:hover {
+        transform: scale(1.1);
+    }
+    .stagger-enter {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s ease forwards;
+    }
+    @keyframes fadeUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .pulse-dot {
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+        70% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+    }
+</style>
+</head>
+<body class="min-h-screen p-container-padding flex items-center justify-center relative overflow-x-hidden font-body-base text-body-base bg-surface">
+<!-- Shader Background -->
+<div class="fixed inset-0 z-0 opacity-30 pointer-events-none mix-blend-screen flex items-center justify-center">
+
+</div>
+<!-- Main Container -->
+<main class="w-full max-w-[1400px] relative z-10 mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[auto_auto_auto] gap-grid-gap">
+<!-- Top-Left: Hero Card -->
+<div class="bento-card p-8 flex flex-col justify-between stagger-enter lg:col-span-2 min-h-[360px]" style="animation-delay: 0.1s;">
+<div class="flex justify-between items-start mb-8">
+<div class="w-16 h-16 rounded-full border border-outline-variant flex items-center justify-center bg-surface">
+<span class="font-display-lg text-title-md text-white font-bold tracking-tighter">SS</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-mono text-code-sm text-secondary uppercase mb-1">WEDNESDAY</span>
+<span class="font-label-mono text-label-mono font-bold text-white tracking-widest time-display">1:40 PM</span>
+</div>
+</div>
+<div class="mb-8">
+<h1 class="font-label-mono text-headline-lg-mobile md:text-headline-lg text-white mb-2 uppercase leading-tight">HELLO: I'M SUDHARSHAN 👋</h1>
+<h2 class="font-label-mono text-title-md text-secondary leading-relaxed uppercase">
+            FULL STACK DEVELOPER<br/>
+            &amp; UI/UX DESIGNER ✨
+        </h2>
+</div>
+<div class="flex flex-wrap gap-4 mt-auto">
+<a class="font-label-mono text-code-sm text-secondary hover:text-white uppercase transition-colors" href="#">LINKEDIN</a>
+<a class="font-label-mono text-code-sm text-secondary hover:text-white uppercase transition-colors" href="#">GITHUB</a>
+<a class="font-label-mono text-code-sm text-secondary hover:text-white uppercase transition-colors" href="#">EMAIL</a>
+<a class="font-label-mono text-code-sm text-secondary hover:text-white uppercase transition-colors" href="#">X</a>
+<a class="font-label-mono text-code-sm text-secondary hover:text-white uppercase transition-colors" href="#">BEHANCE</a>
+</div>
+</div>
+<!-- Top-Center: Profile Card -->
+<div class="bento-card p-0 overflow-hidden relative stagger-enter group h-[360px] lg:col-span-1" style="animation-delay: 0.2s;">
+<img alt="Sudharshan S Portrait" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+</div>
+<!-- Top-Right: Sidebar -->
+<div class="flex flex-col gap-grid-gap h-[360px] lg:col-span-1">
+<div class="bento-card p-6 flex flex-col justify-between relative stagger-enter flex-1" style="animation-delay: 0.3s;">
+<span class="font-label-mono text-code-sm text-secondary uppercase">STATUS</span>
+<div class="flex items-center gap-3 bg-surface-container-highest/50 p-3 rounded-lg border border-outline-variant w-max mt-auto">
+<div class="w-2.5 h-2.5 rounded-full bg-primary pulse-dot"></div>
+<span class="font-label-mono text-code-sm text-primary uppercase font-bold">AVAILABLE</span>
+</div>
+</div>
+<div class="bento-card p-6 flex flex-row items-center justify-between stagger-enter flex-1 cursor-pointer group" style="animation-delay: 0.35s;">
+<span class="font-label-mono text-code-sm text-secondary uppercase tracking-wider">THEME</span>
+<div class="w-14 h-8 bg-surface-container-highest rounded-full p-1 relative border border-outline-variant">
+<div class="w-6 h-6 bg-outline-variant rounded-full absolute left-1 flex items-center justify-center transition-all duration-300 group-hover:bg-primary">
+<span class="material-symbols-outlined text-[14px] text-background">dark_mode</span>
+</div>
+</div>
+</div>
+<div class="flex gap-grid-gap flex-1">
+<div class="bento-card p-4 flex flex-col justify-between stagger-enter group cursor-pointer flex-1" style="animation-delay: 0.4s;">
+<span class="font-label-mono text-[10px] text-secondary uppercase">WORKS</span>
+<div class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center bg-surface self-end group-hover:bg-white group-hover:text-black transition-colors mt-2">
+<span class="material-symbols-outlined text-[16px] arrow-btn">arrow_outward</span>
+</div>
+</div>
+<div class="bento-card p-4 flex flex-col justify-between stagger-enter group cursor-pointer flex-1" style="animation-delay: 0.45s;">
+<span class="font-label-mono text-[10px] text-secondary uppercase">ABOUT</span>
+<div class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center bg-surface self-end group-hover:bg-white group-hover:text-black transition-colors mt-2">
+<span class="material-symbols-outlined text-[16px] arrow-btn">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Middle: Contact Card (Under Profile) -->
+<div class="bento-card p-6 flex flex-col justify-between relative stagger-enter lg:col-span-1 min-h-[200px]" style="animation-delay: 0.5s;">
+<span class="font-label-mono text-code-sm text-secondary uppercase mb-4">Say Hello 👋</span>
+<div class="flex justify-between items-end mt-auto">
+<h3 class="font-title-md text-title-md text-white font-bold w-2/3 leading-tight uppercase">LET'S WORK<br/>TOGETHER</h3>
+<div class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center bg-surface hover:bg-white hover:text-black transition-colors cursor-pointer">
+<span class="material-symbols-outlined arrow-btn">arrow_outward</span>
+</div>
+</div>
+</div>
+<!-- Bottom-Left: Projects Card -->
+<div class="bento-card lg:col-span-2 p-6 flex flex-col stagger-enter min-h-[400px]" style="animation-delay: 0.6s;">
+<div class="flex justify-between items-center mb-6">
+<span class="font-label-mono text-label-mono text-secondary uppercase">SELECTED WORKS</span>
+<div class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center bg-surface cursor-pointer hover:bg-white hover:text-black transition-colors group">
+<span class="material-symbols-outlined text-[16px] arrow-btn">arrow_outward</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+<div class="flex-1 min-h-[140px] bg-surface-container-highest rounded-xl border border-outline-variant flex flex-col justify-end p-4 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-purple-900/20 mix-blend-overlay"></div>
+<h4 class="font-title-md text-white relative z-20 font-semibold mb-1">RESORT MANAGEMENT</h4>
+<span class="font-label-mono text-[10px] text-secondary relative z-20">FULL STACK SYSTEM</span>
+</div>
+<div class="flex-1 min-h-[140px] bg-surface-container-highest rounded-xl border border-outline-variant flex flex-col justify-end p-4 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-gradient-to-tr from-green-900/40 to-emerald-900/20 mix-blend-overlay"></div>
+<h4 class="font-title-md text-white relative z-20 font-semibold mb-1">MILK MANAGEMENT APP</h4>
+<span class="font-label-mono text-[10px] text-secondary relative z-20">MOBILE / FLUTTER</span>
+</div>
+<div class="flex-1 min-h-[140px] bg-surface-container-highest rounded-xl border border-outline-variant flex flex-col justify-end p-4 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-gradient-to-tr from-gray-800/40 to-gray-600/20 mix-blend-overlay"></div>
+<h4 class="font-title-md text-white relative z-20 font-semibold mb-1">INVOICE APP</h4>
+<span class="font-label-mono text-[10px] text-secondary relative z-20">WEB APP</span>
+</div>
+<div class="flex flex-col gap-2 flex-1 justify-center">
+<div class="p-3 border border-outline-variant rounded-lg bg-surface flex justify-between items-center group cursor-pointer hover:border-white/40 transition-colors">
+<span class="font-label-mono text-code-sm text-white">CABLE TV APP</span>
+<span class="material-symbols-outlined text-[16px] text-secondary group-hover:text-white">chevron_right</span>
+</div>
+<div class="p-3 border border-outline-variant rounded-lg bg-surface flex justify-between items-center group cursor-pointer hover:border-white/40 transition-colors">
+<span class="font-label-mono text-code-sm text-white">CHIT MANAGEMENT</span>
+<span class="material-symbols-outlined text-[16px] text-secondary group-hover:text-white">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Skills & Certifications Stack -->
+<div class="flex flex-col gap-grid-gap lg:col-span-1">
+<!-- Bottom-Right: Skills -->
+<div class="bento-card p-6 flex flex-col stagger-enter min-h-[180px]" style="animation-delay: 0.7s;">
+<span class="font-label-mono text-code-sm text-secondary uppercase mb-4">MY DAILY STACK</span>
+<div class="grid grid-cols-4 gap-3">
+<div class="aspect-square bg-surface rounded-lg border border-outline-variant flex items-center justify-center tool-icon"><span class="font-code-sm text-white">Re</span></div>
+<div class="aspect-square bg-surface rounded-lg border border-outline-variant flex items-center justify-center tool-icon"><span class="font-code-sm text-white">Fl</span></div>
+<div class="aspect-square bg-surface rounded-lg border border-outline-variant flex items-center justify-center tool-icon"><span class="font-code-sm text-white">Nd</span></div>
+<div class="aspect-square bg-surface rounded-lg border border-outline-variant flex items-center justify-center tool-icon"><span class="font-code-sm text-white">Fb</span></div>
+<div class="aspect-square bg-surface rounded-lg border border-outline-variant flex items-center justify-center tool-icon"><span class="font-code-sm text-white">My</span></div>
+<div class="aspect-square bg-surface rounded-lg border border-outline-variant flex items-center justify-center tool-icon"><span class="font-code-sm text-white">Fg</span></div>
+<div class="aspect-square bg-surface rounded-lg border border-outline-variant flex items-center justify-center tool-icon"><span class="font-code-sm text-white">Tw</span></div>
+<div class="aspect-square bg-surface rounded-lg border border-outline-variant flex items-center justify-center tool-icon"><span class="font-code-sm text-white">Gt</span></div>
+</div>
+</div>
+<!-- Bottom-Center: Certifications -->
+<div class="bento-card p-6 flex flex-col stagger-enter flex-1" style="animation-delay: 0.8s;">
+<span class="font-label-mono text-code-sm text-secondary uppercase mb-4">LEARNING &amp; CERTIFICATIONS</span>
+<ul class="flex flex-col gap-3">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary mt-0.5">check_circle</span>
+<span class="font-label-mono text-code-sm text-white leading-tight">Web Development</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary mt-0.5">check_circle</span>
+<span class="font-label-mono text-code-sm text-white leading-tight">Typewriting</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary mt-0.5">check_circle</span>
+<span class="font-label-mono text-code-sm text-white leading-tight">UI/UX Design</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary mt-0.5">check_circle</span>
+<span class="font-label-mono text-code-sm text-white leading-tight">Cambridge Linguaskill</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Additional Sections Row -->
+<div class="lg:col-span-4 grid grid-cols-1 lg:grid-cols-4 gap-grid-gap mt-grid-gap">
+<!-- Experience -->
+<div class="bento-card p-6 flex flex-col stagger-enter lg:col-span-2" style="animation-delay: 0.9s;">
+<span class="font-label-mono text-label-mono text-secondary uppercase mb-6">EXPERIENCE</span>
+<div class="flex flex-col gap-6 border-l border-outline-variant ml-2 pl-4 relative">
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-surface-container"></div>
+<h4 class="font-title-md text-white font-semibold">TDS Consultancy</h4>
+<p class="font-label-mono text-code-sm text-secondary mt-1">Role / Timeline</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-outline-variant ring-4 ring-surface-container"></div>
+<h4 class="font-title-md text-white font-semibold">Rabbitqr</h4>
+<p class="font-label-mono text-code-sm text-secondary mt-1">Role / Timeline</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-outline-variant ring-4 ring-surface-container"></div>
+<h4 class="font-title-md text-white font-semibold">Bharath Infotech</h4>
+<p class="font-label-mono text-code-sm text-secondary mt-1">Role / Timeline</p>
+</div>
+</div>
+</div>
+<!-- Education & Achievements Column -->
+<div class="flex flex-col gap-grid-gap lg:col-span-1">
+<!-- Education -->
+<div class="bento-card p-6 flex flex-col stagger-enter flex-1" style="animation-delay: 1.0s;">
+<span class="font-label-mono text-code-sm text-secondary uppercase mb-4">EDUCATION</span>
+<div class="flex flex-col gap-4">
+<div>
+<h4 class="font-title-md text-white text-[16px] font-semibold">B.Tech IT (7.8 CGPA)</h4>
+<p class="font-label-mono text-code-sm text-secondary mt-0.5">MCET</p>
+</div>
+<div>
+<h4 class="font-title-md text-white text-[16px] font-semibold">HSC</h4>
+<p class="font-label-mono text-code-sm text-secondary mt-0.5">Details here</p>
+</div>
+<div>
+<h4 class="font-title-md text-white text-[16px] font-semibold">SSLC</h4>
+<p class="font-label-mono text-code-sm text-secondary mt-0.5">Details here</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Achievements & Beyond Code -->
+<div class="flex flex-col gap-grid-gap lg:col-span-1">
+<!-- Achievements -->
+<div class="bento-card p-6 flex flex-col stagger-enter bg-gradient-to-br from-[#111] to-[#1a1510] border-amber-900/30" style="animation-delay: 1.1s;">
+<span class="font-label-mono text-[10px] text-amber-500/80 uppercase mb-2">ACHIEVEMENTS</span>
+<h4 class="font-title-md text-white font-bold leading-tight mb-3">NATIONAL LEVEL BOXING GOLD MEDAL</h4>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-amber-600">military_tech</span>
+<span class="font-label-mono text-code-sm text-secondary">Deadlifting Bronze</span>
+</div>
+</div>
+<!-- Beyond Code -->
+<div class="bento-card p-6 flex flex-col stagger-enter flex-1" style="animation-delay: 1.2s;">
+<span class="font-label-mono text-[10px] text-secondary uppercase mb-4">BEYOND CODE</span>
+<ul class="flex flex-col gap-2">
+<li class="font-label-mono text-code-sm text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-secondary">star</span> NCC CUO
+                </li>
+<li class="font-label-mono text-code-sm text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-secondary">directions_run</span> Sports Athlete
+                </li>
+<li class="font-label-mono text-code-sm text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-secondary">group</span> Youth Coach
+                </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple client side time update
+        function updateTime() {
+            const timeEls = document.querySelectorAll('.time-display');
+            timeEls.forEach(timeEl => {
+                const now = new Date();
+                timeEl.textContent = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+            });
+        }
+        setInterval(updateTime, 60000);
+        updateTime();
+    </script>
+</body></html>

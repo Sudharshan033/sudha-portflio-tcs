@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-outline: var(--outline);
+  --color-background: var(--background);
+  --color-on-background: var(--on-background);
+  --color-secondary: var(--secondary);
+  --color-primary: var(--primary);
+
+  --spacing-element-gap: 8px;
+  --spacing-section-margin: 48px;
+  --spacing-grid-gap: 12px;
+  --spacing-container-padding: 20px;
+
+  /* Font aliases: light = 300, regular = 400  */
+  --font-light:   var(--font-ibm-plex-mono-light),   monospace;
+  --font-regular: var(--font-ibm-plex-mono-regular), monospace;
+}
+
+/* ========== LIGHT MODE (default) ========== */
+:root {
+  --bg-solid: #e8e8e8;
+  --surface-container: rgba(255, 255, 255, 0.55);
+  --surface-container-highest: rgba(255, 255, 255, 0.75);
+  --outline: rgba(0, 0, 0, 0.12);
+  --outline-hover: rgba(0, 0, 0, 0.25);
+  --glass-blur: 20px;
+  --glass-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.08);
+  --on-background: #111111;
+  --on-background-muted: #555555;
+  --muted-1: #555555;   /* card labels, social links, toggle text */
+  --muted-2: #666666;   /* day label */
+  --primary: #16a34a;
+  --btn-bg: rgba(0, 0, 0, 0.07);
+  --btn-hover-bg: #111111;
+  --btn-hover-fg: #ffffff;
+  --shimmer: rgba(255, 255, 255, 0.5);
+}
+
+/* ========== DARK MODE ========== */
+.dark {
+  --bg-solid: #0a0a0a;
+  --surface-container: rgba(255, 255, 255, 0.06);
+  --surface-container-highest: rgba(255, 255, 255, 0.11);
+  --outline: rgba(255, 255, 255, 0.13);
+  --outline-hover: rgba(255, 255, 255, 0.30);
+  --glass-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.4);
+  --on-background: #F5F5F5;
+  --on-background-muted: #8A8A8A;
+  --muted-1: #8A8A8A;   /* card labels, social links, toggle text */
+  --muted-2: #9A9A9A;   /* day label — slightly lighter */
+  --primary: #6bfb9a;
+  --btn-bg: rgba(255, 255, 255, 0.08);
+  --btn-hover-bg: #F5F5F5;
+  --btn-hover-fg: #111111;
+  --shimmer: rgba(255, 255, 255, 0.08);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;     /* prevent any page scroll on desktop */
+  overscroll-behavior: none;
+}
+
+body {
+  color: var(--on-background);
+  background: var(--bg-solid);
+  position: relative;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ======= Glass Card ======= */
+.bento-card {
+  background: var(--surface-container);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border: 1px solid var(--outline);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer highlight at top-left corner */
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--shimmer) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bento-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bento-card:hover {
+  background: var(--surface-container-highest);
+  border-color: var(--outline-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--glass-shadow), 0 0 0 1px var(--shimmer) inset;
+}
+
+/* ======= Icon/circular buttons ======= */
+.icon-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid var(--outline);
+  background: var(--btn-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  color: var(--on-background-muted);
+}
+
+.icon-btn:hover,
+.bento-card:hover .icon-btn {
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-fg);
+  border-color: var(--btn-hover-bg);
+}
+
+/* ======= Arrow Button ======= */
+.arrow-btn {
+  transition: transform 0.3s ease;
+}
+.bento-card:hover .arrow-btn {
+  transform: rotate(45deg);
+}
+
+.tool-icon {
+  transition: transform 0.2s ease;
+}
+.bento-card:hover .tool-icon:hover {
+  transform: scale(1.1);
+}
+
+/* ======= Pulse dot ======= */
+.pulse-dot {
+  animation: pulse-anim 2s infinite;
+}
+@keyframes pulse-anim {
+  0%   { box-shadow: 0 0 0 0 rgba(107, 251, 154, 0.6); }
+  70%  { box-shadow: 0 0 0 7px rgba(107, 251, 154, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(107, 251, 154, 0); }
+}
+
+/* ======= Tools Marquee ======= */
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* text helpers */
+.text-fg         { color: var(--on-background); }
+.text-fg-muted   { color: var(--on-background-muted); }
+.text-primary-c  { color: var(--primary); }
+
