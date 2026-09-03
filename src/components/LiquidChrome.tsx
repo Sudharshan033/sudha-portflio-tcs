@@ -10,7 +10,7 @@ interface LiquidChromeProps extends React.HTMLAttributes<HTMLDivElement> {
   interactive?: boolean;
 }
 
-export const LiquidChrome: React.FC<LiquidChromeProps> = ({
+const LiquidChromeComponent: React.FC<LiquidChromeProps> = React.memo(({
   baseColor = [0.1, 0.1, 0.1],
   speed = 0.2,
   amplitude = 0.5,
@@ -25,9 +25,9 @@ export const LiquidChrome: React.FC<LiquidChromeProps> = ({
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const renderer = new Renderer({ antialias: true });
+    const renderer = new Renderer({ antialias: true, alpha: true });
     const gl = renderer.gl;
-    gl.clearColor(1, 1, 1, 1);
+    gl.clearColor(0, 0, 0, 0);
 
     const vertexShader = `
       attribute vec2 position;
@@ -163,6 +163,8 @@ export const LiquidChrome: React.FC<LiquidChromeProps> = ({
   }, [baseColor, speed, amplitude, frequencyX, frequencyY, interactive]);
 
   return <div ref={containerRef} className="w-full h-full" {...props} />;
-};
+});
 
+const LiquidChrome = LiquidChromeComponent;
+export { LiquidChrome };
 export default LiquidChrome;
