@@ -143,7 +143,7 @@ export default function Home() {
                 FULL STACK<br />
                 DEVELOPER<br />
                 &amp; UI/UX DESIGNER ✨ ANDROID DEVELOPER.<br />
-                <span style={{ color: "#3b82f6", whiteSpace: "nowrap", fontSize: "clamp(15px, 1.7vw, 26px)" }}>&quot;THE FOUNDER AND CEO OF THE PLOT INFOTECH&quot;</span>
+                <span style={{ color: "#3b82f6", whiteSpace: "nowrap", fontSize: "clamp(9px, 2.8vw, 26px)" }}>&quot;THE FOUNDER AND CEO OF THE PLOT INFOTECH&quot;</span>
               </h1>
             </div>
 
