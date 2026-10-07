@@ -4,6 +4,7 @@ import { Plasma } from "@/components/Plasma";
 import { ToolsMarquee } from "@/components/ToolsMarquee";
 import { ArrowUpRight, Moon, Sun, User, Trophy } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
+import { CursorCharacter } from "@/components/CursorCharacter";
 import Link from "next/link";
 import gsap from "gsap";
 
@@ -171,16 +172,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ══ PROFILE IMAGE ── col 3, row 1 ════════════════════ */}
+        {/* ══ PROFILE INTERACTIVE CHARACTER ── col 3, row 1 ════════════════════ */}
         <div
-          className="bento-card se overflow-hidden relative group min-h-[300px] lg:min-h-0 lg:col-span-1 lg:row-span-1"
+          className="bento-card se overflow-hidden relative min-h-[300px] lg:min-h-0 lg:col-span-1 lg:row-span-1"
         >
-          <img
-            alt="Sudha Paardevan Portrait"
-            className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-            src="/profile.jpg"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <CursorCharacter />
         </div>
 
         {/* ══ SIDEBAR ── col 4, row 1-2 ════════════════════════ */}
