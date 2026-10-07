@@ -124,37 +124,42 @@ export default function Home() {
               </div>
 
               {/* Clock & Anime Character */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "2px", position: "relative" }}>
-                <span style={T.light(10, 0.85, 15, { color: m2, letterSpacing: "0.5px", textTransform: "uppercase" })}>
-                  {dayName || "Wednesday"}
-                </span>
-                <span style={T.regular(20, 2.5, 40, { color: fg, lineHeight: 1 })}>
-                  {time || "3:59 PM"}
-                </span>
+              <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: "16px" }}>
                 
-                {/* Floating Anime Component */}
-                <div className="absolute top-[120%] right-0 mt-4 flex flex-col items-center group cursor-pointer hover:scale-105 transition-transform z-50 animate-bounce" style={{ animationDuration: '3s' }}>
-                  <div className="absolute -top-10 -left-6 bg-white text-black text-xs font-bold px-3 py-1.5 rounded-2xl rounded-br-sm shadow-xl opacity-0 group-hover:opacity-100 transition-opacity">
+                {/* Floating Anime Component (Now relative to avoid overlap) */}
+                <div tabIndex={0} className="relative mt-2 flex flex-col items-center group cursor-pointer focus:outline-none hover:scale-105 focus:scale-105 active:scale-105 transition-transform z-50 animate-bounce" style={{ animationDuration: '3s' }}>
+                  <div className="absolute -top-8 -left-4 md:-top-10 md:-left-6 bg-white text-black text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-2xl rounded-br-sm shadow-xl opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity">
                     Hi! 👋
                   </div>
-                  <div className="w-28 h-28 rounded-full overflow-hidden border-[3px] border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative bg-[#1e1e1e] flex items-end justify-center">
-                    {/* Video (plays continuously, visible on hover) */}
+                  <div className="w-16 h-16 md:w-28 md:h-28 rounded-full overflow-hidden border-[2px] md:border-[3px] border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative bg-[#1e1e1e] flex items-end justify-center">
+                    {/* Video (plays continuously, visible on hover/tap) */}
                     <video
                       src="/gemini_generated_video_50ce5d89.mp4"
                       autoPlay
                       muted
                       loop
                       playsInline
-                      className="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-110 z-0"
+                      className="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-all duration-300 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 z-0"
                     />
-                    {/* Base Image (on top, fades out on hover) */}
+                    {/* Base Image (on top, fades out on hover/tap) */}
                     <img
                       src="/anime_avatar_v2.png"
                       alt="Avatar"
-                      className="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-300 group-hover:opacity-0 z-10"
+                      className="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-300 group-hover:opacity-0 group-focus:opacity-0 group-active:opacity-0 z-10"
                     />
                   </div>
                 </div>
+
+                {/* Clock */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "2px" }}>
+                  <span style={T.light(10, 0.85, 15, { color: m2, letterSpacing: "0.5px", textTransform: "uppercase" })}>
+                    {dayName || "Wednesday"}
+                  </span>
+                  <span style={T.regular(20, 2.5, 40, { color: fg, lineHeight: 1 })}>
+                    {time || "3:59 PM"}
+                  </span>
+                </div>
+
               </div>
             </div>
 
