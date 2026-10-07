@@ -4,7 +4,6 @@ import { Plasma } from "@/components/Plasma";
 import { ToolsMarquee } from "@/components/ToolsMarquee";
 import { ArrowUpRight, Moon, Sun, User, Trophy } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
-import { CursorCharacter } from "@/components/CursorCharacter";
 import Link from "next/link";
 import gsap from "gsap";
 
@@ -124,14 +123,38 @@ export default function Home() {
                 <span style={{ fontSize: "clamp(16px,1.8vw,28px)", fontWeight: 700, lineHeight: 1, color: "currentColor", fontFamily: "var(--font-geist-sans, sans-serif)" }}>S</span>
               </div>
 
-              {/* Clock */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "2px" }}>
+              {/* Clock & Anime Character */}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "2px", position: "relative" }}>
                 <span style={T.light(10, 0.85, 15, { color: m2, letterSpacing: "0.5px", textTransform: "uppercase" })}>
                   {dayName || "Wednesday"}
                 </span>
                 <span style={T.regular(20, 2.5, 40, { color: fg, lineHeight: 1 })}>
                   {time || "3:59 PM"}
                 </span>
+                
+                {/* Floating Anime Component */}
+                <div className="absolute top-[120%] right-0 mt-4 flex flex-col items-center group cursor-pointer hover:scale-105 transition-transform z-50 animate-bounce" style={{ animationDuration: '3s' }}>
+                  <div className="absolute -top-10 -left-6 bg-white text-black text-xs font-bold px-3 py-1.5 rounded-2xl rounded-br-sm shadow-xl opacity-0 group-hover:opacity-100 transition-opacity">
+                    Hi! 👋
+                  </div>
+                  <div className="w-28 h-28 rounded-full overflow-hidden border-[3px] border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative bg-[#1e1e1e] flex items-end justify-center">
+                    {/* Video (plays continuously, visible on hover) */}
+                    <video
+                      src="/gemini_generated_video_50ce5d89.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-110 z-0"
+                    />
+                    {/* Base Image (on top, fades out on hover) */}
+                    <img
+                      src="/anime_avatar_v2.png"
+                      alt="Avatar"
+                      className="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-300 group-hover:opacity-0 z-10"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -172,11 +195,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ══ PROFILE INTERACTIVE CHARACTER ── col 3, row 1 ════════════════════ */}
+        {/* ══ PROFILE IMAGE ── col 3, row 1 ════════════════════ */}
         <div
-          className="bento-card se overflow-hidden relative min-h-[300px] lg:min-h-0 lg:col-span-1 lg:row-span-1"
+          className="bento-card se overflow-hidden relative group min-h-[300px] lg:min-h-0 lg:col-span-1 lg:row-span-1"
         >
-          <CursorCharacter />
+          <img
+            alt="Sudha Paardevan Portrait"
+            className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+            src="/profile.jpg"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         </div>
 
         {/* ══ SIDEBAR ── col 4, row 1-2 ════════════════════════ */}
