@@ -137,13 +137,13 @@ export default function Home() {
             {/* Headline */}
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", paddingBlock: "8px" }}>
               <p style={T.regular(14, 1.5, 26, { color: fg, marginBottom: "6px" })}>
-                HELLO: I&rsquo;M SUDHARSHAN 👋
+                HELLO: I&rsquo;M SUDHA PAARDEVAN 👋
               </p>
-              <h1 style={T.regular(18, 2.2, 34, { color: fg, lineHeight: 1.15, overflow: "hidden" })}>
-                FULL STACK<br />
-                DEVELOPER<br />
-                &amp; UI/UX DESIGNER ✨ ANDROID DEVELOPER.<br />
-                <span style={{ color: "#3b82f6", whiteSpace: "nowrap", fontSize: "clamp(9px, 2.8vw, 26px)" }}>&quot;THE FOUNDER AND CEO OF THE PLOT INFOTECH&quot;</span>
+              <h1 style={T.regular(18, 2.2, 34, { color: fg, lineHeight: 1.15, overflow: "hidden", textTransform: "uppercase" })}>
+                STRATEGIC HR<br />
+                LEADER<br />
+                &amp; WORKFORCE TRANSFORMATION ✨<br />
+                <span style={{ color: "#3b82f6", whiteSpace: "nowrap", fontSize: "clamp(9px, 2.8vw, 26px)" }}>&quot;PEOPLE + STRATEGY + LEADERSHIP EXCELLENCE&quot;</span>
               </h1>
             </div>
 
@@ -151,8 +151,7 @@ export default function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(8px,1vw,16px)", flexShrink: 0 }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                 {[
-                  { label: "GITHUB", url: "https://github.com/Sudharshan033" },
-                  { label: "LINKEDIN", url: "https://linkedin.com/in/sudharshan-s-2049ab278" }
+                  { label: "LINKEDIN", url: "https://www.linkedin.com/in/sudha-paardevan-60536616a?utm_source=share_via&utm_content=profile&utm_medium=member_android" }
                 ].map((l) => (
                   <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-60"
                     style={T.light(10, 0.9, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>{l.label}</a>
@@ -160,7 +159,7 @@ export default function Home() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                 {[
-                  { label: "EMAIL", url: "mailto:sudharshansakthivel033@gmail.com" },
+                  { label: "EMAIL", url: "mailto:sudha.vlbit@gmail.com" },
                   { label: "PORTFOLIO", url: "/" }
                 ].map((l) => (
                   <a key={l.label} href={l.url} className="transition-opacity hover:opacity-60"
@@ -177,9 +176,9 @@ export default function Home() {
           className="bento-card se overflow-hidden relative group min-h-[300px] lg:min-h-0 lg:col-span-1 lg:row-span-1"
         >
           <img
-            alt="Sudharshan Portrait"
+            alt="Sudha Paardevan Portrait"
             className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-            src="/profile.jpg.jpg"
+            src="/profile.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         </div>
@@ -296,7 +295,7 @@ export default function Home() {
           <div style={{ ...CARD_INNER, padding: "clamp(20px,2vw,32px)", justifyContent: "center", alignItems: "center" }}>
             <span style={T.light(10, 0.85, 14, { color: m1, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "1px" })}>Quote</span>
             <h3 style={T.regular(20, 1.8, 28, { color: fg, lineHeight: 1.4, textAlign: "center", fontStyle: "italic" })}>
-              "Think like an architect.<br />Execute like a commander."
+              "To build a great<br />company, you must first<br />build great people."
             </h3>
           </div>
         </div>

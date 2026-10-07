@@ -18,8 +18,8 @@ const ibmPlexMonoRegular = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sudharshan - Portfolio",
-  description: "Full Stack + Frontend Developer & UI/UX Designer",
+  title: "Sudha Paardevan - Portfolio",
+  description: "Strategic HR Leader & Workforce Transformation Expert",
 };
 
 export default function RootLayout({

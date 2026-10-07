@@ -4,101 +4,85 @@ import React from "react";
 /* ── SVG icon definitions ────────────────────────────────── */
 const ICONS: { name: string; bg: string; svg: React.ReactNode }[] = [
   {
-    name: "React",
-    bg: "#20232A",
-    svg: (
-      <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="16" r="3.2" fill="#61DAFB" />
-        <ellipse cx="16" cy="16" rx="13" ry="5" stroke="#61DAFB" strokeWidth="1.4" />
-        <ellipse cx="16" cy="16" rx="13" ry="5" stroke="#61DAFB" strokeWidth="1.4" transform="rotate(60 16 16)" />
-        <ellipse cx="16" cy="16" rx="13" ry="5" stroke="#61DAFB" strokeWidth="1.4" transform="rotate(-60 16 16)" />
-      </svg>
-    ),
-  },
-  {
-    name: "Figma",
-    bg: "#1A1A1A",
-    svg: (
-      <svg width="20" height="30" viewBox="0 0 38 57" fill="none">
-        <path d="M19 28.5C19 33.75 14.75 38 9.5 38C4.25 38 0 33.75 0 28.5C0 23.25 4.25 19 9.5 19C14.75 19 19 23.25 19 28.5Z" fill="#0ACF83" />
-        <path d="M0 28.5C0 23.25 4.25 19 9.5 19H19V38H9.5C4.25 38 0 33.75 0 28.5Z" fill="#A259FF" />
-        <path d="M0 9.5C0 4.25 4.25 0 9.5 0H19V19H9.5C4.25 19 0 14.75 0 9.5Z" fill="#F24E1E" />
-        <path d="M19 0H28.5C33.75 0 38 4.25 38 9.5C38 14.75 33.75 19 28.5 19H19V0Z" fill="#FF7262" />
-        <path d="M38 28.5C38 33.75 33.75 38 28.5 38C23.25 38 19 33.75 19 28.5C19 23.25 23.25 19 28.5 19C33.75 19 38 23.25 38 28.5Z" fill="#1ABCFE" />
-      </svg>
-    ),
-  },
-  {
-    name: "VS Code",
-    bg: "#1A1A1A",
+    name: "Workday",
+    bg: "#005CB9",
     svg: (
       <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-        <path d="M22.5 2L12.5 12.5L5.5 7L2 9L10 16L2 23L5.5 25L12.5 19.5L22.5 30L30 26V6L22.5 2Z" fill="#0078D7" />
-        <path d="M22.5 8.5L14.5 16L22.5 23.5V8.5Z" fill="rgba(255,255,255,0.3)" />
+        <path d="M4 6 L12 26 L16 16 L20 26 L28 6" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
-    name: "Supabase",
+    name: "SAP",
+    bg: "#008FD3",
+    svg: (
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+        <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fontFamily="sans-serif" fontWeight="bold" fontSize="14" fill="#fff">SAP</text>
+      </svg>
+    ),
+  },
+  {
+    name: "LinkedIn Recruiter",
+    bg: "#0A66C2",
+    svg: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF">
+        <path d="M20.45 20.45h-3.56v-5.37c0-1.28-.02-2.93-1.78-2.93-1.78 0-2.05 1.39-2.05 2.84v5.46H9.5V9h3.42v1.56h.05c.48-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Jira",
+    bg: "#0052CC",
+    svg: (
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <path d="M16 2L2 16L16 30L30 16L16 2Z" fill="#FFFFFF" fillOpacity="0.8"/>
+        <path d="M16 8L8 16L16 24L24 16L16 8Z" fill="#FFFFFF"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Tableau",
     bg: "#1C1C1C",
     svg: (
-      <svg width="24" height="28" viewBox="0 0 24 28" fill="none">
-        <path d="M13.5 0.5L0.5 16H12L10.5 27.5L23.5 12H12L13.5 0.5Z" fill="#3ECF8E" />
-      </svg>
-    ),
-  },
-  {
-    name: "Node.js",
-    bg: "#1A2A1A",
-    svg: (
-      <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
-        <path d="M16 2L4 8.5V23.5L16 30L28 23.5V8.5L16 2Z" fill="#339933" />
-        <path d="M16 2L4 8.5V23.5L16 30L28 23.5V8.5L16 2Z" fill="url(#nodeGrad)" />
-        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
-          fontFamily="monospace" fontWeight="bold" fontSize="7" fill="#fff">NODE</text>
-        <defs>
-          <linearGradient id="nodeGrad" x1="4" y1="2" x2="28" y2="30">
-            <stop offset="0%" stopColor="#3c873a" />
-            <stop offset="100%" stopColor="#215732" />
-          </linearGradient>
-        </defs>
-      </svg>
-    ),
-  },
-  {
-    name: "Electron",
-    bg: "#1A2030",
-    svg: (
-      <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="16" r="3" fill="#9FEAF9" />
-        <ellipse cx="16" cy="16" rx="13" ry="5" stroke="#9FEAF9" strokeWidth="1.3" />
-        <ellipse cx="16" cy="16" rx="13" ry="5" stroke="#9FEAF9" strokeWidth="1.3" transform="rotate(60 16 16)" />
-      </svg>
-    ),
-  },
-  {
-    name: "Git",
-    bg: "#2A1A1A",
-    svg: (
       <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-        <rect x="13" y="1" width="6" height="6" rx="3" fill="#F05032" />
-        <rect x="13" y="13" width="6" height="6" rx="3" fill="#F05032" />
-        <rect x="1"  y="13" width="6" height="6" rx="3" fill="#F05032" />
-        <rect x="13" y="25" width="6" height="6" rx="3" fill="#F05032" />
-        <line x1="16" y1="7"  x2="16" y2="13" stroke="#F05032" strokeWidth="2" />
-        <line x1="16" y1="19" x2="16" y2="25" stroke="#F05032" strokeWidth="2" />
-        <line x1="7"  y1="16" x2="13" y2="16" stroke="#F05032" strokeWidth="2" />
-        <line x1="7"  y1="16" x2="7"  y2="10" stroke="#F05032" strokeWidth="2" />
-        <line x1="7"  y1="10" x2="13" y2="10" stroke="#F05032" strokeWidth="2" />
+        <circle cx="16" cy="16" r="5" fill="#E97627" />
+        <circle cx="26" cy="16" r="3" fill="#5C88BA" />
+        <circle cx="6" cy="16" r="3" fill="#5C88BA" />
+        <circle cx="16" cy="6" r="3" fill="#A83226" />
+        <circle cx="16" cy="26" r="3" fill="#A83226" />
       </svg>
     ),
   },
   {
-    name: "Vercel",
-    bg: "#111111",
+    name: "Excel",
+    bg: "#217346",
     svg: (
       <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
-        <path d="M16 3L30 28H2L16 3Z" fill="#FFFFFF" />
+        <rect x="2" y="2" width="28" height="28" rx="4" fill="#217346" />
+        <path d="M10 8 L14 16 L10 24 M22 8 L18 16 L22 24 M14 16 L18 16" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    name: "Power BI",
+    bg: "#F2C811",
+    svg: (
+      <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+        <rect x="6" y="18" width="5" height="10" fill="#333" />
+        <rect x="13.5" y="10" width="5" height="18" fill="#333" />
+        <rect x="21" y="4" width="5" height="24" fill="#333" />
+      </svg>
+    ),
+  },
+  {
+    name: "MS Teams",
+    bg: "#4A4CC3",
+    svg: (
+      <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+        <path d="M18 16 C20 16 22 14 22 12 C22 10 20 8 18 8 C16 8 14 10 14 12 C14 14 16 16 18 16 Z" fill="#FFFFFF" />
+        <path d="M12 24 L12 22 C12 19 15 17 18 17 C21 17 24 19 24 22 L24 24 Z" fill="#FFFFFF" />
+        <path d="M12 14 C14 14 15 12.5 15 11 C15 9.5 14 8 12 8 C10 8 9 9.5 9 11 C9 12.5 10 14 12 14 Z" fill="#FFFFFF" fillOpacity="0.7" />
+        <path d="M7 22 L7 20 C7 18 9 16 11 16 L12.5 16 C11.5 17 11 18.5 11 20 L11 22 Z" fill="#FFFFFF" fillOpacity="0.7" />
       </svg>
     ),
   },

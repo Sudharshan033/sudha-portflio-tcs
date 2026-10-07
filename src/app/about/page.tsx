@@ -60,7 +60,7 @@ export default function About() {
 
         <div className="stagger-enter mb-12">
           <h1 style={T.regular(32, 4, 56, { lineHeight: 1.1, textTransform: "uppercase", maxWidth: "800px" })}>
-            PASSIONATE DEVELOPER, DESIGNER &amp; ATHLETE.
+            STRATEGIC HR LEADER &amp; WORKFORCE TRANSFORMATION EXPERT.
           </h1>
         </div>
 
@@ -73,18 +73,8 @@ export default function About() {
             <div className="flex flex-col gap-8 border-l border-[var(--outline)] ml-2 pl-6 relative">
               <div className="relative">
                 <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-[var(--primary)] ring-4 ring-[var(--background)]"></div>
-                <h4 style={T.regular(20, 1.5, 24, { color: "var(--on-background)", marginBottom: "4px" })}>TDS Consultancy</h4>
-                <p style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>Role / Timeline</p>
-              </div>
-              <div className="relative">
-                <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-[var(--outline)] ring-4 ring-[var(--background)]"></div>
-                <h4 style={T.regular(20, 1.5, 24, { color: "var(--on-background)", marginBottom: "4px" })}>Rabbitqr</h4>
-                <p style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>Role / Timeline</p>
-              </div>
-              <div className="relative">
-                <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-[var(--outline)] ring-4 ring-[var(--background)]"></div>
-                <h4 style={T.regular(20, 1.5, 24, { color: "var(--on-background)", marginBottom: "4px" })}>Bharath Infotech</h4>
-                <p style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>Role / Timeline</p>
+                <h4 style={T.regular(20, 1.5, 24, { color: "var(--on-background)", marginBottom: "4px" })}>Tata Consultancy Services</h4>
+                <p style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>Strategic HR Leader / Currently working</p>
               </div>
             </div>
           </div>
@@ -94,10 +84,17 @@ export default function About() {
             <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "24px" })}>Education</span>
             <div className="flex flex-col gap-6">
               <div>
-                <h4 style={T.regular(18, 1.2, 20, { color: "var(--on-background)", marginBottom: "2px" })}>B.Tech IT (7.8 CGPA)</h4>
-                <p style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>MCET</p>
+                <h4 style={T.regular(18, 1.2, 20, { color: "var(--on-background)", marginBottom: "2px" })}>B-Tech IT, MBA</h4>
+                <p style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>IIM Raipur</p>
               </div>
-
+              <div>
+                <h4 style={T.regular(18, 1.2, 20, { color: "var(--on-background)", marginBottom: "2px" })}>PG Cert in CHRO Program</h4>
+                <p style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>IIM Ranchi</p>
+              </div>
+              <div>
+                <h4 style={T.regular(18, 1.2, 20, { color: "var(--on-background)", marginBottom: "2px" })}>PG Cert in Buiz Analytics and AI</h4>
+                <p style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>IIM Trichy</p>
+              </div>
             </div>
           </div>
 
@@ -105,29 +102,25 @@ export default function About() {
           <div className="bento-card p-8 flex flex-col stagger-enter bg-gradient-to-br from-[var(--background)] to-[#1a1510] border-amber-900/30">
             <span style={T.light(12, 1, 14, { color: "#d97706", textTransform: "uppercase", marginBottom: "16px" })}>Achievements</span>
             <h4 style={T.regular(22, 1.5, 26, { color: "var(--on-background)", lineHeight: 1.2, marginBottom: "16px", textTransform: "uppercase" })}>
-              NATIONAL LEVEL BOXING GOLD MEDAL
+              GLOBAL CHRO PROGRAM CERTIFIED
             </h4>
             <div className="flex items-center gap-3 mt-auto pt-4">
               <Award className="w-5 h-5 text-amber-600" />
-              <span style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>Deadlifting Bronze</span>
+              <span style={T.light(14, 1, 16, { color: "var(--muted-1)" })}>Advanced NLP Practitioner - HIPE Canada</span>
             </div>
           </div>
 
           {/* Beyond Code */}
           <div className="bento-card p-8 flex flex-col stagger-enter">
-            <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "24px" })}>Beyond Code</span>
+            <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "24px" })}>Beyond HR</span>
             <ul className="flex flex-col gap-4">
               <li className="flex items-center gap-3">
                 <Star className="w-5 h-5 text-[var(--muted-1)]" />
-                <span style={T.regular(16, 1.2, 18, { color: "var(--on-background)" })}>NCC CUO</span>
+                <span style={T.regular(16, 1.2, 18, { color: "var(--on-background)" })}>Psychologist</span>
               </li>
               <li className="flex items-center gap-3">
                 <Activity className="w-5 h-5 text-[var(--muted-1)]" />
-                <span style={T.regular(16, 1.2, 18, { color: "var(--on-background)" })}>Sports Athlete</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Users className="w-5 h-5 text-[var(--muted-1)]" />
-                <span style={T.regular(16, 1.2, 18, { color: "var(--on-background)" })}>Youth Coach</span>
+                <span style={T.regular(16, 1.2, 18, { color: "var(--on-background)" })}>Hypnotherapist</span>
               </li>
             </ul>
           </div>
@@ -136,7 +129,7 @@ export default function About() {
           <div className="bento-card p-8 flex flex-col stagger-enter">
             <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "24px" })}>Certifications</span>
             <ul className="flex flex-col gap-4">
-              {["Web Development", "Typewriting", "UI/UX Design", "Cambridge Linguaskill"].map((cert, i) => (
+              {["PSM II", "SAFe5", "Lean", "Six Sigma", "Green Belt Certified"].map((cert, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[var(--primary)] mt-0.5 flex-shrink-0" />
                   <span style={T.regular(16, 1.2, 18, { color: "var(--on-background)", lineHeight: 1.4 })}>{cert}</span>
@@ -150,13 +143,12 @@ export default function About() {
         {/* Footer */}
         <footer className="w-full flex flex-col md:flex-row items-center justify-between border-t border-[var(--outline)] pt-8 mt-12 pb-4 stagger-enter">
           <div style={T.light(12, 1, 14, { color: "var(--on-background)", textTransform: "lowercase" })}>
-            sudharshansakthivel033@gmail.com
+            sudha.vlbit@gmail.com
           </div>
           <div className="flex gap-4 md:gap-8 mt-6 md:mt-0">
             {[
-              { label: "GITHUB", url: "https://github.com/Sudharshan033" },
-              { label: "LINKEDIN", url: "https://linkedin.com/in/sudharshan-s-2049ab278" },
-              { label: "EMAIL", url: "mailto:sudharshansakthivel033@gmail.com" }
+              { label: "LINKEDIN", url: "https://www.linkedin.com/in/sudha-paardevan-60536616a?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+              { label: "EMAIL", url: "mailto:sudha.vlbit@gmail.com" }
             ].map((link) => (
               <a 
                 key={link.label} 

@@ -40,42 +40,30 @@ export default function Contact() {
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-          name: formData.name,
-          company: formData.company,
-          email: formData.email,
-          projectType: formData.projectType,
-          budget: formData.budget,
-          message: formData.message,
-        }),
-      });
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+    const bodyText = `Name: ${formData.name}
+Company: ${formData.company || "N/A"}
+Email: ${formData.email}
+Inquiry Type: ${formData.projectType || "N/A"}
+Company Size: ${formData.budget || "N/A"}
 
-      const result = await response.json();
-      console.log("Web3Forms response:", result);
+Message:
+${formData.message}`;
 
-      if (result.success) {
-        setStatus("success");
-        setFormData({ name: "", company: "", email: "", projectType: "", budget: "", message: "" });
-      } else {
-        console.error("Web3Forms error:", result.message);
-        setStatus("error");
-      }
-    } catch (error) {
-      console.error("Fetch error:", error);
-      setStatus("error");
-    }
+    const mailtoLink = `mailto:sudha.vlbit@gmail.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+
+    // Reset form
+    setTimeout(() => {
+      setStatus("success");
+      setFormData({ name: "", company: "", email: "", projectType: "", budget: "", message: "" });
+    }, 500);
   };
   
   useEffect(() => {
@@ -183,28 +171,29 @@ export default function Contact() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex flex-col gap-2">
-                  <label style={T.regular(16, 1.5, 18, { color: "#111" })}>Project Type</label>
+                  <label style={T.regular(16, 1.5, 18, { color: "#111" })}>Inquiry Type</label>
                   <input 
                     type="text"
                     className="contact-input"
                     style={{ borderColor: "#8A8A8A", color: "#111" }}
-                    placeholder="e.g. Website, App, Design..."
+                    placeholder="e.g. Consulting, Training, Speaking..."
                     value={formData.projectType}
                     onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label style={T.regular(16, 1.5, 18, { color: "#111" })}>Budget</label>
+                  <label style={T.regular(16, 1.5, 18, { color: "#111" })}>Company Size</label>
                   <select 
                     className="contact-input contact-select"
                     style={{ borderColor: "#8A8A8A", color: "#111" }}
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                   >
-                    <option value="" disabled>₹10,000 - ₹2,00,000+</option>
-                    <option value="₹10k - ₹50k">₹10k - ₹50k</option>
-                    <option value="₹50k - ₹2L">₹50k - ₹2L</option>
-                    <option value="₹2L+">₹2L+</option>
+                    <option value="" disabled>Select Company Size</option>
+                    <option value="1-50">1 - 50 Employees</option>
+                    <option value="51-200">51 - 200 Employees</option>
+                    <option value="201-1000">201 - 1000 Employees</option>
+                    <option value="1000+">1000+ Employees</option>
                   </select>
                 </div>
               </div>
@@ -213,7 +202,7 @@ export default function Contact() {
                 <label style={T.regular(16, 1.5, 18, { color: "#111" })}>Message *</label>
                 <textarea 
                   required
-                  placeholder="Tell me about your project..." 
+                  placeholder="Tell me about your organization's needs..." 
                   className="contact-input"
                   style={{ borderColor: "#8A8A8A", color: "#111", minHeight: "100px" }}
                   value={formData.message}
@@ -241,7 +230,7 @@ export default function Contact() {
                     gap: "8px"
                   }}
                 >
-                  {status === "submitting" ? "SENDING..." : "SEND REQUEST"}
+                  {status === "submitting" ? "SENDING..." : "SEND MESSAGE"}
                   {status !== "submitting" && (
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -258,13 +247,12 @@ export default function Contact() {
         {/* Footer */}
         <footer className="w-full flex flex-col md:flex-row items-center justify-between border-t border-white/20 pt-8 mt-12 pb-4 stagger-enter">
           <div style={T.light(12, 1, 14, { color: "#fff", textTransform: "lowercase" })}>
-            sudharshansakthivel033@gmail.com
+            sudha.vlbit@gmail.com
           </div>
           <div className="flex gap-4 md:gap-8 mt-6 md:mt-0">
             {[
-              { label: "GITHUB", url: "https://github.com/Sudharshan033" },
-              { label: "LINKEDIN", url: "https://linkedin.com/in/sudharshan-s-2049ab278" },
-              { label: "EMAIL", url: "mailto:sudharshansakthivel033@gmail.com" }
+              { label: "LINKEDIN", url: "https://www.linkedin.com/in/sudha-paardevan-60536616a?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+              { label: "EMAIL", url: "mailto:sudha.vlbit@gmail.com" }
             ].map((link) => (
               <a 
                 key={link.label} 
