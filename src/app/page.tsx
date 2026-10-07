@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { Plasma } from "@/components/Plasma";
 import { ToolsMarquee } from "@/components/ToolsMarquee";
-import { ArrowUpRight, Moon, Sun } from "lucide-react";
+import { ArrowUpRight, Moon, Sun, User, Trophy } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 import Link from "next/link";
 import gsap from "gsap";
@@ -249,10 +249,19 @@ export default function Home() {
 
           {/* About */}
           <Link href="/about" className="bento-card group" style={{ flex: 1, overflow: "hidden", position: "relative", cursor: "pointer", display: "block" }}>
-            <div style={{ ...CARD_INNER, padding: "clamp(12px,1.2vw,20px)" }}>
+            <div style={{ ...CARD_INNER, padding: "clamp(12px,1.2vw,20px)", justifyContent: "space-between", position: "relative", zIndex: 1 }}>
               <span style={T.light(10, 0.85, 14, { color: m1 })}>About</span>
+              
+              {/* Prominent Symbol */}
+              <div className="flex-1 flex items-center justify-center my-2">
+                <User className="w-10 h-10 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" style={{ color: fg }} />
+              </div>
+
+              <div>
+                <h3 style={T.regular(14, 1.3, 22, { color: fg, textTransform: "uppercase" })}>Who I Am</h3>
+              </div>
             </div>
-            <button className="icon-btn arrow-btn" style={{ position: "absolute", bottom: "clamp(8px,1vw,16px)", right: "clamp(8px,1vw,16px)" }}>
+            <button className="icon-btn arrow-btn" style={{ position: "absolute", bottom: "clamp(8px,1vw,16px)", right: "clamp(8px,1vw,16px)", zIndex: 2 }}>
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </Link>
@@ -300,19 +309,25 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ══ RESOURCES ── col 2, row 3 ════════════════════════ */}
-        <Link
-          href="/achievements"
-          className="bento-card se group block overflow-hidden cursor-pointer flex flex-col min-h-[150px] lg:min-h-0 lg:col-span-1 lg:row-span-1"
-        >
-          <div style={{ ...CARD_INNER, flex: 1, padding: "clamp(14px,1.5vw,32px)", justifyContent: "space-between" }}>
-            <span style={T.light(10, 0.85, 14, { color: m1, marginBottom: "10px" })}>Achievements</span>
-            <h3 style={T.regular(14, 1.4, 22, { color: fg, lineHeight: 1.2 })}>MY ACHIEVEMENTS</h3>
-            <div style={{ marginTop: "auto", alignSelf: "flex-end" }}>
-              <button className="icon-btn arrow-btn"><ArrowUpRight className="w-5 h-5" /></button>
+          {/* ══ ACHIEVEMENTS ── col 2, row 3 ════════════════════════ */}
+          <Link
+            href="/achievements"
+            className="bento-card se group block overflow-hidden cursor-pointer flex flex-col min-h-[150px] lg:min-h-0 lg:col-span-1 lg:row-span-1 relative"
+          >
+            <div style={{ ...CARD_INNER, flex: 1, padding: "clamp(14px,1.5vw,32px)", justifyContent: "space-between", position: "relative", zIndex: 1 }}>
+              <span style={T.light(10, 0.85, 14, { color: m1 })}>Achievements</span>
+              
+              {/* Prominent Symbol */}
+              <div className="flex-1 flex items-center justify-center my-2">
+                <Trophy className="w-14 h-14 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" style={{ color: fg }} />
+              </div>
+
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                <h3 style={T.regular(14, 1.4, 22, { color: fg, lineHeight: 1.2 })}>MY ACHIEVEMENTS</h3>
+                <button className="icon-btn arrow-btn"><ArrowUpRight className="w-5 h-5" /></button>
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
 
         {/* ══ TOOLS ── col 3-4, row 3 ══════════════════════════ */}
         <div
