@@ -128,7 +128,7 @@ export default function Home() {
                 
                 {/* Floating Anime Component (Now relative to avoid overlap) */}
                 <div tabIndex={0} className="relative mt-2 flex flex-col items-center group cursor-pointer focus:outline-none hover:scale-105 focus:scale-105 active:scale-105 transition-transform z-50 animate-bounce" style={{ animationDuration: '3s' }}>
-                  <div className="absolute -top-8 -left-4 md:-top-10 md:-left-6 bg-white text-black text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-2xl rounded-br-sm shadow-xl opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity">
+                  <div className="absolute top-2 -left-10 md:top-4 md:-left-14 bg-white text-black text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-2xl rounded-tr-sm shadow-xl opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity z-50 pointer-events-none">
                     Hi! 👋
                   </div>
                   <div className="w-16 h-16 md:w-28 md:h-28 rounded-full overflow-hidden border-[2px] md:border-[3px] border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative bg-[#1e1e1e] flex items-end justify-center">
