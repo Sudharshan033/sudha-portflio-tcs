@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Script from "next/script";
 import "./globals.css";
 
-// Only two weights — Light for labels/body, Regular for headlines
-const ibmPlexMonoLight = IBM_Plex_Mono({
-  weight: "300",
-  variable: "--font-ibm-plex-mono-light",
+const interFont = Inter({
   subsets: ["latin"],
-});
-
-const ibmPlexMonoRegular = IBM_Plex_Mono({
-  weight: "400",
-  variable: "--font-ibm-plex-mono-regular",
-  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -47,8 +40,8 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${ibmPlexMonoLight.variable} ${ibmPlexMonoRegular.variable} antialiased transition-colors duration-300`}
-        style={{ fontFamily: "var(--font-ibm-plex-mono-light), monospace", fontWeight: 300 }}
+        className={`${interFont.variable} antialiased transition-colors duration-300`}
+        style={{ fontFamily: "var(--font-inter), sans-serif" }}
       >
         <ThemeProvider
           attribute="class"

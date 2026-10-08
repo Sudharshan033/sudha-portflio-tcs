@@ -12,25 +12,17 @@ import gsap from "gsap";
    viewports instead of overflowing.
 ───────────────────────────────────────────────────────────── */
 const T = {
-  /** IBM Plex Mono Light (300) — labels, body, social, toggle */
-  light: (
-    min: number, vw: number, max: number,
-    extra: React.CSSProperties = {}
-  ): React.CSSProperties => ({
-    fontFamily: "var(--font-light)",
-    fontWeight: 300,
-    fontSize: `clamp(${min}px, ${vw}vw, ${max}px)`,
-    ...extra,
+  light: (min: number, vw: number, max: number, extra: React.CSSProperties = {}): React.CSSProperties => ({
+    fontFamily: "var(--font-inter)", fontWeight: 300, fontSize: `clamp(${min}px, ${vw}vw, ${max}px)`, ...extra,
   }),
-  /** IBM Plex Mono Regular (400) — headlines, prominent values */
-  regular: (
-    min: number, vw: number, max: number,
-    extra: React.CSSProperties = {}
-  ): React.CSSProperties => ({
-    fontFamily: "var(--font-regular)",
-    fontWeight: 400,
-    fontSize: `clamp(${min}px, ${vw}vw, ${max}px)`,
-    ...extra,
+  regular: (min: number, vw: number, max: number, extra: React.CSSProperties = {}): React.CSSProperties => ({
+    fontFamily: "var(--font-inter)", fontWeight: 400, fontSize: `clamp(${min}px, ${vw}vw, ${max}px)`, ...extra,
+  }),
+  medium: (min: number, vw: number, max: number, extra: React.CSSProperties = {}): React.CSSProperties => ({
+    fontFamily: "var(--font-inter)", fontWeight: 500, fontSize: `clamp(${min}px, ${vw}vw, ${max}px)`, ...extra,
+  }),
+  bold: (min: number, vw: number, max: number, extra: React.CSSProperties = {}): React.CSSProperties => ({
+    fontFamily: "var(--font-inter)", fontWeight: 700, fontSize: `clamp(${min}px, ${vw}vw, ${max}px)`, ...extra,
   }),
 };
 
@@ -152,10 +144,10 @@ export default function Home() {
 
                 {/* Clock */}
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "2px" }}>
-                  <span style={T.light(10, 0.85, 15, { color: m2, letterSpacing: "0.5px", textTransform: "uppercase" })}>
+                  <span style={T.medium(10, 0.85, 15, { color: m2, letterSpacing: "0.5px", textTransform: "uppercase" })}>
                     {dayName || "Wednesday"}
                   </span>
-                  <span style={T.regular(20, 2.5, 40, { color: fg, lineHeight: 1 })}>
+                  <span style={T.bold(20, 2.5, 40, { color: fg, lineHeight: 1, letterSpacing: "-1px" })}>
                     {time || "3:59 PM"}
                   </span>
                 </div>
@@ -165,14 +157,14 @@ export default function Home() {
 
             {/* Headline */}
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", paddingBlock: "8px" }}>
-              <p style={T.regular(14, 1.5, 26, { color: fg, marginBottom: "6px" })}>
+              <p style={T.medium(14, 1.5, 26, { color: m1, marginBottom: "8px", letterSpacing: "1px" })}>
                 HELLO: I&rsquo;M SUDHA PAARDEVAN 👋
               </p>
-              <h1 style={T.regular(18, 2.2, 34, { color: fg, lineHeight: 1.15, overflow: "hidden", textTransform: "uppercase" })}>
+              <h1 style={T.bold(20, 2.5, 42, { color: fg, lineHeight: 1.1, overflow: "hidden", textTransform: "uppercase", letterSpacing: "-1px" })}>
                 STRATEGIC HR<br />
                 LEADER<br />
-                &amp; WORKFORCE TRANSFORMATION ✨<br />
-                <span style={{ color: "#3b82f6", whiteSpace: "nowrap", fontSize: "clamp(9px, 2.8vw, 26px)" }}>&quot;PEOPLE + STRATEGY + LEADERSHIP EXCELLENCE&quot;</span>
+                <span className="opacity-80 font-medium">&amp; WORKFORCE TRANSFORMATION ✨</span><br />
+                <span style={{ color: "var(--primary)", whiteSpace: "nowrap", fontSize: "clamp(10px, 2.5vw, 22px)", fontWeight: 600, letterSpacing: "0px" }}>&quot;PEOPLE + STRATEGY + LEADERSHIP EXCELLENCE&quot;</span>
               </h1>
             </div>
 
@@ -219,10 +211,10 @@ export default function Home() {
           {/* Status */}
           <div className="bento-card" style={{ flex: 1, overflow: "hidden", position: "relative" }}>
             <div style={{ ...CARD_INNER, padding: "clamp(12px,1.2vw,20px)", justifyContent: "space-between" }}>
-              <span style={T.light(10, 0.85, 14, { color: m1 })}>Status</span>
+              <span style={T.medium(10, 0.85, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>Status</span>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "auto" }}>
-                <div className="pulse-dot" style={{ width: "10px", height: "10px", borderRadius: "50%", background: "var(--primary)", flexShrink: 0 }} />
-                <span style={T.regular(14, 1.3, 22, { color: fg })}>Available</span>
+                <div className="pulse-dot" style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#22c55e", flexShrink: 0 }} />
+                <span style={T.medium(14, 1.3, 22, { color: fg })}>Available</span>
               </div>
             </div>
 
@@ -268,8 +260,8 @@ export default function Home() {
           {/* Works */}
           <Link href="/works" className="bento-card group" style={{ flex: 1, overflow: "hidden", position: "relative", cursor: "pointer", display: "block" }}>
             <div style={{ ...CARD_INNER, padding: "clamp(12px,1.2vw,20px)", justifyContent: "space-between" }}>
-              <span style={T.light(10, 0.85, 14, { color: m1 })}>Works</span>
-              <h3 style={T.regular(14, 1.3, 22, { color: fg, marginTop: "6px" })}>VIEW MY WORK</h3>
+              <span style={T.medium(10, 0.85, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>Works</span>
+              <h3 style={T.bold(14, 1.3, 24, { color: fg, marginTop: "6px", letterSpacing: "-0.5px" })}>VIEW MY WORK</h3>
             </div>
             <button className="icon-btn arrow-btn" style={{ position: "absolute", bottom: "clamp(8px,1vw,16px)", right: "clamp(8px,1vw,16px)" }}>
               <ArrowUpRight className="w-4 h-4" />
@@ -279,7 +271,7 @@ export default function Home() {
           {/* About */}
           <Link href="/about" className="bento-card group" style={{ flex: 1, overflow: "hidden", position: "relative", cursor: "pointer", display: "block" }}>
             <div style={{ ...CARD_INNER, padding: "clamp(12px,1.2vw,20px)", justifyContent: "space-between", position: "relative", zIndex: 1 }}>
-              <span style={T.light(10, 0.85, 14, { color: m1 })}>About</span>
+              <span style={T.medium(10, 0.85, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>About</span>
               
               {/* Prominent Symbol */}
               <div className="flex-1 flex items-center justify-center my-2">
@@ -287,7 +279,7 @@ export default function Home() {
               </div>
 
               <div>
-                <h3 style={T.regular(14, 1.3, 22, { color: fg, textTransform: "uppercase" })}>Who I Am</h3>
+                <h3 style={T.bold(14, 1.3, 24, { color: fg, textTransform: "uppercase", letterSpacing: "-0.5px" })}>Who I Am</h3>
               </div>
             </div>
             <button className="icon-btn arrow-btn" style={{ position: "absolute", bottom: "clamp(8px,1vw,16px)", right: "clamp(8px,1vw,16px)", zIndex: 2 }}>
@@ -313,10 +305,10 @@ export default function Home() {
               >
                 <span style={{ fontSize: "clamp(16px,1.8vw,28px)", fontWeight: 700, lineHeight: 1, color: "currentColor", fontFamily: "var(--font-geist-sans, sans-serif)" }}>S</span>
               </div>
-              <span style={T.light(11, 0.9, 14, { color: m1 })}>Say Hello 👋</span>
+              <span style={T.medium(11, 0.9, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>Say Hello 👋</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: "auto" }}>
-              <h3 style={T.regular(16, 1.5, 24, { color: fg, lineHeight: 1.2 })}>
+              <h3 style={T.bold(18, 1.6, 28, { color: fg, lineHeight: 1.1, letterSpacing: "-1px" })}>
                 LET&rsquo;S WORK<br />TOGETHER
               </h3>
               <button className="icon-btn arrow-btn">
@@ -331,8 +323,8 @@ export default function Home() {
           className="bento-card se group overflow-hidden min-h-[150px] lg:min-h-0 lg:col-span-1 lg:row-span-1"
         >
           <div style={{ ...CARD_INNER, padding: "clamp(20px,2vw,32px)", justifyContent: "center", alignItems: "center" }}>
-            <span style={T.light(10, 0.85, 14, { color: m1, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "1px" })}>Quote</span>
-            <h3 style={T.regular(20, 1.8, 28, { color: fg, lineHeight: 1.4, textAlign: "center", fontStyle: "italic" })}>
+            <span style={T.medium(10, 0.85, 14, { color: m1, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "1px" })}>Quote</span>
+            <h3 style={T.medium(20, 1.8, 30, { color: fg, lineHeight: 1.4, textAlign: "center", fontStyle: "italic", letterSpacing: "-0.5px" })}>
               "To build a great<br />company, you must first<br />build great people."
             </h3>
           </div>
@@ -344,7 +336,7 @@ export default function Home() {
             className="bento-card se group block overflow-hidden cursor-pointer flex flex-col min-h-[150px] lg:min-h-0 lg:col-span-1 lg:row-span-1 relative"
           >
             <div style={{ ...CARD_INNER, flex: 1, padding: "clamp(14px,1.5vw,32px)", justifyContent: "space-between", position: "relative", zIndex: 1 }}>
-              <span style={T.light(10, 0.85, 14, { color: m1 })}>Achievements</span>
+              <span style={T.medium(10, 0.85, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>Achievements</span>
               
               {/* Prominent Symbol */}
               <div className="flex-1 flex items-center justify-center my-2">
@@ -352,7 +344,7 @@ export default function Home() {
               </div>
 
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-                <h3 style={T.regular(14, 1.4, 22, { color: fg, lineHeight: 1.2 })}>MY ACHIEVEMENTS</h3>
+                <h3 style={T.bold(14, 1.4, 24, { color: fg, lineHeight: 1.2, letterSpacing: "-0.5px" })}>MY ACHIEVEMENTS</h3>
                 <button className="icon-btn arrow-btn"><ArrowUpRight className="w-5 h-5" /></button>
               </div>
             </div>
@@ -366,8 +358,8 @@ export default function Home() {
         >
           <div style={{ ...CARD_INNER, padding: "clamp(14px,1.5vw,32px)", justifyContent: "space-between" }}>
             <div style={{ flexShrink: 0 }}>
-              <span style={T.light(10, 0.85, 14, { color: m1 })}>Tools I Use</span>
-              <h3 style={T.regular(14, 1.4, 22, { color: fg, marginTop: "6px", lineHeight: 1.2 })}>MY DAILY STACK</h3>
+              <span style={T.medium(10, 0.85, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>Tools I Use</span>
+              <h3 style={T.bold(14, 1.4, 24, { color: fg, marginTop: "6px", lineHeight: 1.2, letterSpacing: "-0.5px" })}>MY DAILY STACK</h3>
             </div>
             {/* Marquee — takes remaining height, vertically centered */}
             <div style={{ flex: 1, display: "flex", alignItems: "center", marginTop: "16px", minHeight: 0 }}>

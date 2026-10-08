@@ -131,7 +131,7 @@ export default function About() {
             <ul className="flex flex-col gap-4">
               {["PSM II", "SAFe5", "Lean", "Six Sigma", "Green Belt Certified"].map((cert, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[var(--primary)] mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-[#22c55e] mt-0.5 flex-shrink-0" />
                   <span style={T.regular(16, 1.2, 18, { color: "var(--on-background)", lineHeight: 1.4 })}>{cert}</span>
                 </li>
               ))}

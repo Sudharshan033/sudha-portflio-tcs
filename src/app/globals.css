@@ -15,48 +15,46 @@
   --spacing-grid-gap: 12px;
   --spacing-container-padding: 20px;
 
-  /* Font aliases: light = 300, regular = 400  */
-  --font-light:   var(--font-ibm-plex-mono-light),   monospace;
-  --font-regular: var(--font-ibm-plex-mono-regular), monospace;
+  --font-inter: var(--font-inter), sans-serif;
 }
 
 /* ========== LIGHT MODE (default) ========== */
 :root {
-  --bg-solid: #e8e8e8;
-  --surface-container: rgba(255, 255, 255, 0.55);
-  --surface-container-highest: rgba(255, 255, 255, 0.75);
-  --outline: rgba(0, 0, 0, 0.12);
-  --outline-hover: rgba(0, 0, 0, 0.25);
-  --glass-blur: 20px;
-  --glass-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.08);
-  --on-background: #111111;
-  --on-background-muted: #555555;
-  --muted-1: #555555;   /* card labels, social links, toggle text */
-  --muted-2: #666666;   /* day label */
-  --primary: #16a34a;
-  --btn-bg: rgba(0, 0, 0, 0.07);
-  --btn-hover-bg: #111111;
+  --bg-solid: #f4f4f5;
+  --surface-container: rgba(255, 255, 255, 0.65);
+  --surface-container-highest: rgba(255, 255, 255, 0.85);
+  --outline: rgba(0, 0, 0, 0.06);
+  --outline-hover: rgba(0, 0, 0, 0.12);
+  --glass-blur: 24px;
+  --glass-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+  --on-background: #09090b;
+  --on-background-muted: #52525b;
+  --muted-1: #71717a;
+  --muted-2: #a1a1aa;
+  --primary: #2563eb;
+  --btn-bg: rgba(0, 0, 0, 0.04);
+  --btn-hover-bg: #09090b;
   --btn-hover-fg: #ffffff;
-  --shimmer: rgba(255, 255, 255, 0.5);
+  --shimmer: rgba(255, 255, 255, 0.6);
 }
 
 /* ========== DARK MODE ========== */
 .dark {
-  --bg-solid: #0a0a0a;
-  --surface-container: rgba(255, 255, 255, 0.06);
-  --surface-container-highest: rgba(255, 255, 255, 0.11);
-  --outline: rgba(255, 255, 255, 0.13);
-  --outline-hover: rgba(255, 255, 255, 0.30);
-  --glass-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.4);
-  --on-background: #F5F5F5;
-  --on-background-muted: #8A8A8A;
-  --muted-1: #8A8A8A;   /* card labels, social links, toggle text */
-  --muted-2: #9A9A9A;   /* day label — slightly lighter */
-  --primary: #6bfb9a;
-  --btn-bg: rgba(255, 255, 255, 0.08);
-  --btn-hover-bg: #F5F5F5;
-  --btn-hover-fg: #111111;
-  --shimmer: rgba(255, 255, 255, 0.08);
+  --bg-solid: #09090b;
+  --surface-container: rgba(255, 255, 255, 0.04);
+  --surface-container-highest: rgba(255, 255, 255, 0.08);
+  --outline: rgba(255, 255, 255, 0.06);
+  --outline-hover: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 12px 40px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+  --on-background: #fafafa;
+  --on-background-muted: #a1a1aa;
+  --muted-1: #a1a1aa;
+  --muted-2: #71717a;
+  --primary: #60a5fa;
+  --btn-bg: rgba(255, 255, 255, 0.05);
+  --btn-hover-bg: #fafafa;
+  --btn-hover-fg: #09090b;
+  --shimmer: rgba(255, 255, 255, 0.1);
 }
 
 html, body {
@@ -75,12 +73,12 @@ body {
 /* ======= Glass Card ======= */
 .bento-card {
   background: var(--surface-container);
-  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(200%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(200%);
   border: 1px solid var(--outline);
-  border-radius: 20px;
+  border-radius: 28px;
   box-shadow: var(--glass-shadow);
-  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
@@ -91,14 +89,14 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 55%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 40%);
   pointer-events: none;
   z-index: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .bento-card:hover::before {
-  opacity: 1.5; /* subtle brightening on hover without a color flash */
+  opacity: 2; /* subtle brightening on hover without a color flash */
 }
 
 .bento-card > * {
@@ -109,7 +107,7 @@ body {
 .bento-card:hover {
   background: var(--surface-container-highest);
   border-color: var(--outline-hover);
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.005);
   box-shadow: var(--glass-shadow), 0 0 0 1px var(--shimmer) inset;
 }
 
@@ -155,9 +153,9 @@ body {
   animation: pulse-anim 2s infinite;
 }
 @keyframes pulse-anim {
-  0%   { box-shadow: 0 0 0 0 rgba(107, 251, 154, 0.6); }
-  70%  { box-shadow: 0 0 0 7px rgba(107, 251, 154, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(107, 251, 154, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+  70%  { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
 }
 
 /* ======= Tools Marquee ======= */
@@ -179,9 +177,9 @@ body {
   border-bottom: 1px solid var(--outline);
   color: var(--on-background);
   padding: 12px 0;
-  font-family: var(--font-light);
+  font-family: var(--font-inter);
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   outline: none;
   transition: border-color 0.3s ease;
   resize: none;
