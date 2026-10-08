@@ -207,7 +207,7 @@ export default function Home() {
           <img
             alt="Sudha Paardevan Portrait"
             className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-            src="/profile.jpg"
+            src="/profile_new.png"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         </div>
