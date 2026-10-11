@@ -42,7 +42,7 @@ const ICONS: { name: string; bg: string; svg: React.ReactNode }[] = [
   },
   {
     name: "Tableau",
-    bg: "#1C1C1C",
+    bg: "#2B2113",
     svg: (
       <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="16" r="5" fill="#E97627" />
@@ -124,7 +124,7 @@ export function ToolsMarquee({ paused = false }: { paused?: boolean }) {
               height: "56px",
               borderRadius: "14px",
               background: icon.bg,
-              border: "1px solid rgba(255,255,255,0.08)",
+              border: "1px solid var(--tile-border)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

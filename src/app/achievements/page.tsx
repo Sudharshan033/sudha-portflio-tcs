@@ -37,7 +37,9 @@ export default function Achievements() {
   return (
     <>
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
-        <Plasma color={plasmaColor} speed={1.9} direction="forward" scale={1.7} opacity={1} mouseInteractive={false} />
+        {isDark && (
+          <Plasma color={plasmaColor} speed={1.9} direction="forward" scale={1.7} opacity={1} mouseInteractive={false} />
+        )}
       </div>
       <div ref={containerRef} className="min-h-screen bg-transparent text-[var(--on-background)] w-full flex flex-col p-6 overflow-x-hidden relative z-10">
         <div className="flex-1 max-w-7xl w-full mx-auto flex flex-col justify-between">

@@ -29,28 +29,24 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                if (localStorage.theme === 'light') {
-                  document.documentElement.classList.remove('dark');
-                } else {
-                  document.documentElement.classList.add('dark');
+                var t = localStorage.theme;
+                if (t !== 'light' && t !== 'dark') {
+                  t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
                 }
+                var r = document.documentElement;
+                r.setAttribute('data-theme', t);
+                r.classList.toggle('dark', t === 'dark');
+                r.classList.toggle('light', t === 'light');
               } catch (_) {}
             `,
           }}
         />
       </head>
       <body
-        className={`${interFont.variable} antialiased transition-colors duration-300`}
+        className={`${interFont.variable} antialiased`}
         style={{ fontFamily: "var(--font-inter), sans-serif" }}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

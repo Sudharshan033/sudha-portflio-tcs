@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Plasma } from "@/components/Plasma";
 import { ToolsMarquee } from "@/components/ToolsMarquee";
-import { ArrowUpRight, Moon, Sun, User, Trophy } from "lucide-react";
+import { Moon, Sun, User, Trophy } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
+import { ButterflyButton } from "@/components/ButterflyButton";
 import Link from "next/link";
 import gsap from "gsap";
 
@@ -39,6 +40,23 @@ export default function Home() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
   const [toolsPaused, setToolsPaused] = React.useState(false);
+
+  /* Card-level click → butterfly flies, then navigate.
+     Each nav card bumps its counter; ButterflyButton watches it. */
+  const [worksFly, setWorksFly] = useState(0);
+  const [aboutFly, setAboutFly] = useState(0);
+  const [contactFly, setContactFly] = useState(0);
+  const [achFly, setAchFly] = useState(0);
+
+  const flyTo =
+    (bump: React.Dispatch<React.SetStateAction<number>>) =>
+    (e: React.MouseEvent) => {
+      /* modifier clicks → let the browser open the link in a new tab */
+      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      e.stopPropagation();
+      bump((v) => v + 1);
+    };
 
   useEffect(() => { setMounted(true); }, []);
 
@@ -77,9 +95,11 @@ export default function Home() {
 
   return (
     <>
-      {/* ── Fixed WebGL background ──────────────────────────── */}
+      {/* ── Fixed WebGL background (dark mode only — light uses the ivory gradient) ── */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
-        <Plasma color={plasmaColor} speed={1.9} direction="forward" scale={1.7} opacity={1} mouseInteractive={false} />
+        {isDark && (
+          <Plasma color={plasmaColor} speed={1.9} direction="forward" scale={1.7} opacity={1} mouseInteractive={false} />
+        )}
       </div>
 
       {/* ── Dashboard shell ────────────────────────────────────
@@ -144,7 +164,7 @@ export default function Home() {
 
                 {/* Clock */}
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "2px" }}>
-                  <span style={T.medium(10, 0.85, 15, { color: m2, letterSpacing: "0.5px", textTransform: "uppercase" })}>
+                  <span style={T.medium(10, 0.85, 15, { color: "var(--bronze)", letterSpacing: "0.15em", textTransform: "uppercase" })}>
                     {dayName || "Wednesday"}
                   </span>
                   <span style={T.bold(20, 2.5, 40, { color: fg, lineHeight: 1, letterSpacing: "-1px" })}>
@@ -157,7 +177,7 @@ export default function Home() {
 
             {/* Headline */}
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", paddingBlock: "8px" }}>
-              <p style={T.medium(14, 1.5, 26, { color: m1, marginBottom: "8px", letterSpacing: "1px" })}>
+              <p style={T.medium(14, 1.5, 26, { color: "var(--ivory)", marginBottom: "8px", letterSpacing: "0.15em" })}>
                 HELLO: I&rsquo;M SUDHA PAARDEVAN 👋
               </p>
               <h1 style={T.bold(20, 2.5, 42, { color: fg, lineHeight: 1.1, overflow: "hidden", textTransform: "uppercase", letterSpacing: "-1px" })}>
@@ -174,8 +194,8 @@ export default function Home() {
                 {[
                   { label: "LINKEDIN", url: "https://www.linkedin.com/in/sudha-paardevan-60536616a?utm_source=share_via&utm_content=profile&utm_medium=member_android" }
                 ].map((l) => (
-                  <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-60"
-                    style={T.light(10, 0.9, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>{l.label}</a>
+                  <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer" className="gold-link"
+                    style={T.light(10, 0.9, 14, { textTransform: "uppercase", letterSpacing: "0.15em" })}>{l.label}</a>
                 ))}
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
@@ -183,8 +203,8 @@ export default function Home() {
                   { label: "EMAIL", url: "mailto:sudha.vlbit@gmail.com" },
                   { label: "PORTFOLIO", url: "/" }
                 ].map((l) => (
-                  <a key={l.label} href={l.url} className="transition-opacity hover:opacity-60"
-                    style={T.light(10, 0.9, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>{l.label}</a>
+                  <a key={l.label} href={l.url} className="gold-link"
+                    style={T.light(10, 0.9, 14, { textTransform: "uppercase", letterSpacing: "0.15em" })}>{l.label}</a>
                 ))}
               </div>
             </div>
@@ -213,7 +233,7 @@ export default function Home() {
             <div style={{ ...CARD_INNER, padding: "clamp(12px,1.2vw,20px)", justifyContent: "space-between" }}>
               <span style={T.medium(10, 0.85, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>Status</span>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "auto" }}>
-                <div className="pulse-dot" style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#22c55e", flexShrink: 0 }} />
+                <div className="pulse-dot" style={{ width: "10px", height: "10px", borderRadius: "50%", background: "var(--status-green)", flexShrink: 0 }} />
                 <span style={T.medium(14, 1.3, 22, { color: fg })}>Available</span>
               </div>
             </div>
@@ -251,46 +271,55 @@ export default function Home() {
                     : <Sun  className="w-3.5 h-3.5" style={{ color: "var(--on-background)" }} />}
                 </div>
               </div>
-              <span style={T.light(9, 0.75, 12, { color: m1, letterSpacing: "1px", textTransform: "uppercase", textAlign: "right", lineHeight: 1.4 })}>
+              <span style={T.light(9, 0.75, 12, { color: "var(--taupe)", letterSpacing: "0.15em", textTransform: "uppercase", textAlign: "right", lineHeight: 1.4 })}>
                 SWITCH TO<br />{isDark ? "LIGHT" : "DARK"} MODE.
               </span>
             </div>
           </div>
 
           {/* Works */}
-          <Link href="/works" className="bento-card group" style={{ flex: 1, overflow: "hidden", position: "relative", cursor: "pointer", display: "block" }}>
+          <Link href="/works" onClick={flyTo(setWorksFly)} className="bento-card group" style={{ flex: 1, overflow: "hidden", position: "relative", cursor: "pointer", display: "block" }}>
             <div style={{ ...CARD_INNER, padding: "clamp(12px,1.2vw,20px)", justifyContent: "space-between" }}>
               <span style={T.medium(10, 0.85, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>Works</span>
-              <h3 style={T.bold(14, 1.3, 24, { color: fg, marginTop: "6px", letterSpacing: "-0.5px" })}>VIEW MY WORK</h3>
+              <h3 style={T.bold(14, 1.3, 24, { color: "var(--champagne)", marginTop: "6px", letterSpacing: "-0.5px" })}>VIEW MY WORK</h3>
             </div>
-            <button className="icon-btn arrow-btn" style={{ position: "absolute", bottom: "clamp(8px,1vw,16px)", right: "clamp(8px,1vw,16px)" }}>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
+            <ButterflyButton
+              href="/works"
+              flySignal={worksFly}
+              ariaLabel="View my work"
+              size={22}
+              style={{ position: "absolute", bottom: "clamp(8px,1vw,16px)", right: "clamp(8px,1vw,16px)" }}
+            />
           </Link>
 
           {/* About */}
-          <Link href="/about" className="bento-card group" style={{ flex: 1, overflow: "hidden", position: "relative", cursor: "pointer", display: "block" }}>
+          <Link href="/about" onClick={flyTo(setAboutFly)} className="bento-card group" style={{ flex: 1, overflow: "hidden", position: "relative", cursor: "pointer", display: "block" }}>
             <div style={{ ...CARD_INNER, padding: "clamp(12px,1.2vw,20px)", justifyContent: "space-between", position: "relative", zIndex: 1 }}>
               <span style={T.medium(10, 0.85, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>About</span>
               
               {/* Prominent Symbol */}
               <div className="flex-1 flex items-center justify-center my-2">
-                <User className="w-10 h-10 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" style={{ color: fg }} />
+                <User className="w-10 h-10 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" style={{ color: "var(--icon-color)" }} />
               </div>
 
               <div>
-                <h3 style={T.bold(14, 1.3, 24, { color: fg, textTransform: "uppercase", letterSpacing: "-0.5px" })}>Who I Am</h3>
+                <h3 style={T.bold(14, 1.3, 24, { color: "var(--champagne)", textTransform: "uppercase", letterSpacing: "-0.5px" })}>Who I Am</h3>
               </div>
             </div>
-            <button className="icon-btn arrow-btn" style={{ position: "absolute", bottom: "clamp(8px,1vw,16px)", right: "clamp(8px,1vw,16px)", zIndex: 2 }}>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
+            <ButterflyButton
+              href="/about"
+              flySignal={aboutFly}
+              ariaLabel="Learn more about me"
+              size={22}
+              style={{ position: "absolute", bottom: "clamp(8px,1vw,16px)", right: "clamp(8px,1vw,16px)", zIndex: 2 }}
+            />
           </Link>
         </div>
 
         {/* ══ SAY HELLO ── col 3, row 2 ════════════════════════ */}
         <Link
           href="/contact"
+          onClick={flyTo(setContactFly)}
           className="bento-card se group block overflow-hidden cursor-pointer min-h-[200px] lg:min-h-0 lg:col-span-1 lg:row-span-1"
         >
           <div style={{ ...CARD_INNER, padding: "clamp(16px,1.8vw,32px)", justifyContent: "space-between" }}>
@@ -308,12 +337,10 @@ export default function Home() {
               <span style={T.medium(11, 0.9, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>Say Hello 👋</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: "auto" }}>
-              <h3 style={T.bold(18, 1.6, 28, { color: fg, lineHeight: 1.1, letterSpacing: "-1px" })}>
+              <h3 style={T.bold(18, 1.6, 28, { color: "var(--champagne)", lineHeight: 1.1, letterSpacing: "-1px" })}>
                 LET&rsquo;S WORK<br />TOGETHER
               </h3>
-              <button className="icon-btn arrow-btn">
-                <ArrowUpRight className="w-5 h-5" />
-              </button>
+              <ButterflyButton href="/contact" flySignal={contactFly} ariaLabel="Say hello" size={26} />
             </div>
           </div>
         </Link>
@@ -324,8 +351,8 @@ export default function Home() {
         >
           <div style={{ ...CARD_INNER, padding: "clamp(20px,2vw,32px)", justifyContent: "center", alignItems: "center" }}>
             <span style={T.medium(10, 0.85, 14, { color: m1, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "1px" })}>Quote</span>
-            <h3 style={T.medium(20, 1.8, 30, { color: fg, lineHeight: 1.4, textAlign: "center", fontStyle: "italic", letterSpacing: "-0.5px" })}>
-              "To build a great<br />company, you must first<br />build great people."
+            <h3 style={T.medium(20, 1.8, 30, { color: "var(--rose-gold)", lineHeight: 1.4, textAlign: "center", fontStyle: "italic", letterSpacing: "-0.5px" })}>
+              "To build a <span style={{ color: "var(--gold-main)" }}>great<br />company</span>, you must first<br />build <span style={{ color: "var(--gold-main)" }}>great people</span>."
             </h3>
           </div>
         </div>
@@ -333,6 +360,7 @@ export default function Home() {
           {/* ══ ACHIEVEMENTS ── col 2, row 3 ════════════════════════ */}
           <Link
             href="/achievements"
+            onClick={flyTo(setAchFly)}
             className="bento-card se group block overflow-hidden cursor-pointer flex flex-col min-h-[150px] lg:min-h-0 lg:col-span-1 lg:row-span-1 relative"
           >
             <div style={{ ...CARD_INNER, flex: 1, padding: "clamp(14px,1.5vw,32px)", justifyContent: "space-between", position: "relative", zIndex: 1 }}>
@@ -340,12 +368,12 @@ export default function Home() {
               
               {/* Prominent Symbol */}
               <div className="flex-1 flex items-center justify-center my-2">
-                <Trophy className="w-14 h-14 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" style={{ color: fg }} />
+                <Trophy className="w-14 h-14 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" style={{ color: "var(--icon-color)" }} />
               </div>
 
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-                <h3 style={T.bold(14, 1.4, 24, { color: fg, lineHeight: 1.2, letterSpacing: "-0.5px" })}>MY ACHIEVEMENTS</h3>
-                <button className="icon-btn arrow-btn"><ArrowUpRight className="w-5 h-5" /></button>
+                <h3 style={T.bold(14, 1.4, 24, { color: "var(--champagne)", lineHeight: 1.2, letterSpacing: "-0.5px" })}>MY ACHIEVEMENTS</h3>
+                <ButterflyButton href="/achievements" flySignal={achFly} ariaLabel="My achievements" size={26} />
               </div>
             </div>
           </Link>
@@ -359,7 +387,7 @@ export default function Home() {
           <div style={{ ...CARD_INNER, padding: "clamp(14px,1.5vw,32px)", justifyContent: "space-between" }}>
             <div style={{ flexShrink: 0 }}>
               <span style={T.medium(10, 0.85, 14, { color: m1, textTransform: "uppercase", letterSpacing: "1px" })}>Tools I Use</span>
-              <h3 style={T.bold(14, 1.4, 24, { color: fg, marginTop: "6px", lineHeight: 1.2, letterSpacing: "-0.5px" })}>MY DAILY STACK</h3>
+              <h3 style={T.bold(14, 1.4, 24, { color: "var(--champagne)", marginTop: "6px", lineHeight: 1.2, letterSpacing: "-0.5px" })}>MY DAILY STACK</h3>
             </div>
             {/* Marquee — takes remaining height, vertically centered */}
             <div style={{ flex: 1, display: "flex", alignItems: "center", marginTop: "16px", minHeight: 0 }}>

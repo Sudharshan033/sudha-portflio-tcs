@@ -109,7 +109,7 @@ ${formData.message}`;
           </div>
 
           {/* Right Column - Form Card */}
-          <div className="stagger-enter rounded-3xl p-8 md:p-12 w-full" style={{ backgroundColor: "#D4D4D4", color: "#111" }}>
+          <div className="stagger-enter rounded-3xl p-8 md:p-12 w-full on-light" style={{ backgroundColor: "#D4D4D4", color: "#111" }}>
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center h-full gap-4 text-center py-20">
                 <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mb-4">
@@ -121,7 +121,7 @@ ${formData.message}`;
                 <p style={T.light(16, 1.5, 18, { color: "#555" })}>Thanks for reaching out. I'll get back to you soon.</p>
                 <button 
                   onClick={() => setStatus("idle")}
-                  className="mt-8 border border-[#111] px-6 py-2 rounded-full hover:bg-[#111] hover:text-[#D4D4D4] transition-colors"
+                  className="gold-text mt-8 border border-[#111] px-6 py-2 rounded-full hover:bg-[#111] hover:text-[#D4D4D4] transition-colors"
                   style={T.regular(14, 1, 16, { textTransform: "uppercase" })}
                 >
                   Send Another
@@ -220,7 +220,7 @@ ${formData.message}`;
                 <button 
                   type="submit" 
                   disabled={status === "submitting"}
-                  className="hover:opacity-60 transition-opacity disabled:opacity-50"
+                  className="gold-text hover:opacity-60 transition-opacity disabled:opacity-50"
                   style={{
                     ...T.regular(16, 1.5, 18, { color: "#111", textTransform: "uppercase" }),
                     borderBottom: "1px solid #111",

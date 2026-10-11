@@ -7,42 +7,32 @@ const ThemeContext = createContext<{
   setTheme: (theme: string) => void;
 }>({ theme: "dark", setTheme: () => {} });
 
-export function ThemeProvider({
-  children,
-}: {
-  children: React.ReactNode;
-  attribute?: string;
-  defaultTheme?: string;
-  enableSystem?: boolean;
-  disableTransitionOnChange?: boolean;
-}) {
+/* Applies the theme to <html>: data-theme attribute (CSS) + .dark/.light
+   classes (Tailwind dark: variant). */
+function applyTheme(t: string) {
+  const root = document.documentElement;
+  root.setAttribute("data-theme", t);
+  root.classList.toggle("dark", t === "dark");
+  root.classList.toggle("light", t === "light");
+}
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<string | undefined>(undefined);
 
   useEffect(() => {
+    /* saved choice wins; otherwise respect prefers-color-scheme */
     const saved = localStorage.getItem("theme");
-    if (saved) {
-      setThemeState(saved);
-      if (saved === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
-    } else {
-      setThemeState("dark");
-      document.documentElement.classList.add("dark");
-    }
+    const initial =
+      saved ??
+      (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    applyTheme(initial);
+    setThemeState(initial);
   }, []);
 
   const setTheme = (newTheme: string) => {
-    setThemeState(newTheme);
     localStorage.setItem("theme", newTheme);
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      document.documentElement.classList.remove("light");
-    } else {
-      document.documentElement.classList.add("light");
-      document.documentElement.classList.remove("dark");
-    }
+    applyTheme(newTheme);
+    setThemeState(newTheme);
   };
 
   return (

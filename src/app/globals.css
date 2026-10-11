@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Tailwind dark: variant follows the .dark class (not system preference) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-surface: var(--surface);
   --color-surface-container: var(--surface-container);
@@ -18,43 +21,132 @@
   --font-inter: var(--font-inter), sans-serif;
 }
 
-/* ========== LIGHT MODE (default) ========== */
-:root {
-  --bg-solid: #f4f4f5;
-  --surface-container: rgba(255, 255, 255, 0.65);
-  --surface-container-highest: rgba(255, 255, 255, 0.85);
-  --outline: rgba(0, 0, 0, 0.06);
-  --outline-hover: rgba(0, 0, 0, 0.12);
-  --glass-blur: 24px;
-  --glass-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
-  --on-background: #09090b;
-  --on-background-muted: #52525b;
-  --muted-1: #71717a;
-  --muted-2: #a1a1aa;
-  --primary: #2563eb;
-  --btn-bg: rgba(0, 0, 0, 0.04);
-  --btn-hover-bg: #09090b;
-  --btn-hover-fg: #ffffff;
-  --shimmer: rgba(255, 255, 255, 0.6);
-}
-
-/* ========== DARK MODE ========== */
-.dark {
+/* ========== DARK THEME (default) ========== */
+:root,
+:root[data-theme="dark"] {
   --bg-solid: #09090b;
   --surface-container: rgba(255, 255, 255, 0.04);
   --surface-container-highest: rgba(255, 255, 255, 0.08);
   --outline: rgba(255, 255, 255, 0.06);
-  --outline-hover: rgba(255, 255, 255, 0.15);
+  --outline-hover: rgba(212, 175, 55, 0.35);
+  --glass-blur: 24px;
   --glass-shadow: 0 12px 40px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
-  --on-background: #fafafa;
-  --on-background-muted: #a1a1aa;
-  --muted-1: #a1a1aa;
-  --muted-2: #71717a;
-  --primary: #60a5fa;
+  --on-background: #F5EBD7;   /* ivory — replaces near-white */
+  --on-background-muted: #C9A27E;
+  --muted-1: #A8895B;         /* bronze */
+  --muted-2: #8C8372;         /* taupe */
+  --primary: #D4AF37;
   --btn-bg: rgba(255, 255, 255, 0.05);
-  --btn-hover-bg: #fafafa;
+  --btn-hover-bg: #F5EBD7;
   --btn-hover-fg: #09090b;
   --shimmer: rgba(255, 255, 255, 0.1);
+  --tile-border: rgba(255, 255, 255, 0.08);
+  --status-green: #5FBF8A;
+  --status-green-rgb: 95, 191, 138;
+  --icon-color: #C9A27E;
+  /* golden palette */
+  --gold-main: #D4AF37;
+  --gold-light: #F3E2A9;
+  --gold-deep: #B8860B;
+  --ivory: #F5EBD7;
+  --champagne: #E6D3A3;
+  --rose-gold: #C9A27E;
+  --bronze: #A8895B;
+  --taupe: #8C8372;
+  --border-gold: rgba(212, 175, 55, 0.18);
+  /* metallic gold heading gradient (symmetric → seamless shimmer loop) */
+  --gold-grad: linear-gradient(135deg, #B8860B 0%, #F3E2A9 25%, #D4AF37 50%, #F3E2A9 75%, #B8860B 100%);
+}
+
+/* ========== LIGHT THEME — dedicated warm ivory & brown palette ========== */
+:root[data-theme="light"] {
+  /* spec palette */
+  --bg-page: linear-gradient(135deg, #FBF7EE 0%, #F3E9D2 100%);
+  --card-bg: rgba(255, 251, 242, 0.88);
+  --card-border: rgba(154, 123, 31, 0.30);
+  --card-shadow: 0 8px 30px rgba(120, 90, 20, 0.10);
+  --text-primary: #2B2113;   /* greeting, time, "Available" */
+  --text-heading: #5C430A;   /* card titles */
+  --text-label: #6B5530;     /* small uppercase labels */
+  --text-muted: #6E624D;     /* links, muted text */
+  --gold-text-1: #6B4E0F;
+  --gold-text-2: #A67C1A;
+  --icon-color: #8A6A2F;     /* trophy, user icon */
+  --status-green: #2E9E6B;
+  --status-green-rgb: 46, 158, 107;
+
+  /* mapped onto the variables used across the app */
+  --bg-solid: #F3E9D2;
+  --surface-container: var(--card-bg);
+  --surface-container-highest: rgba(255, 251, 242, 0.95);
+  --outline: var(--card-border);
+  --outline-hover: rgba(154, 123, 31, 0.45);
+  --glass-blur: 10px;
+  --glass-shadow: var(--card-shadow);
+  --on-background: var(--text-primary);
+  --on-background-muted: var(--text-muted);
+  --muted-1: var(--text-label);
+  --muted-2: var(--text-muted);
+  --primary: #9A7B1F;
+  --btn-bg: rgba(154, 123, 31, 0.08);
+  --btn-hover-bg: #2B2113;
+  --btn-hover-fg: #F5EBD7;
+  --shimmer: rgba(120, 90, 20, 0.08);
+  --tile-border: rgba(154, 123, 31, 0.25);
+  --gold-main: #5C430A;
+  --gold-light: #9A7B1F;     /* link hover color */
+  --gold-deep: #6B4E0F;
+  --ivory: var(--text-primary);
+  --champagne: var(--text-heading);
+  --rose-gold: #7A5A12;      /* quote text */
+  --bronze: var(--text-label);
+  --taupe: var(--text-muted);
+  --border-gold: var(--card-border);
+  /* heading gradient — every stop dark enough for contrast, no pale yellows */
+  --gold-grad: linear-gradient(135deg, var(--gold-text-1) 0%, var(--gold-text-2) 50%, var(--gold-text-1) 100%);
+}
+
+/* Light page background — warm ivory gradient + one soft gold corner glow */
+:root[data-theme="light"] body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.12), transparent 50%),
+    linear-gradient(135deg, #FBF7EE 0%, #F3E9D2 100%) fixed;
+}
+
+/* Light mode: no text glow (it blurs letters), heavier card titles, lucide stroke */
+:root[data-theme="light"] h1,
+:root[data-theme="light"] .gold-text { text-shadow: none; }
+:root[data-theme="light"] h2,
+:root[data-theme="light"] h3,
+:root[data-theme="light"] h4 { font-weight: 700 !important; }
+:root[data-theme="light"] .lucide { stroke-width: 1.8px; }
+
+/* Light butterfly button — espresso circle, gold butterfly, thin gold border */
+:root[data-theme="light"] .butterfly-btn {
+  background: #2B2113;
+  border: 1px solid #B8860B;
+  box-shadow: 0 4px 12px rgba(120, 90, 20, 0.25);
+}
+:root[data-theme="light"] .butterfly-btn:hover {
+  box-shadow: 0 6px 18px rgba(120, 90, 20, 0.4), 0 0 14px rgba(212, 175, 55, 0.35);
+}
+
+/* Always-light surfaces (e.g. the contact form card) — deep-on-light text
+   in either theme so the pale dark-mode stops never wash out. */
+.on-light {
+  --on-background: #2B2113;
+  --on-background-muted: #6E624D;
+  --muted-1: #6B5530;
+  --muted-2: #6E624D;
+  --ivory: #2B2113;
+  --champagne: #5C430A;
+  --rose-gold: #7A5A12;
+  --bronze: #6B5530;
+  --taupe: #6E624D;
+  --border-gold: rgba(154, 123, 31, 0.30);
+  --gold-main: #5C430A;
+  --gold-light: #9A7B1F;
+  --gold-grad: linear-gradient(135deg, #6B4E0F 0%, #A67C1A 50%, #6B4E0F 100%);
 }
 
 html, body {
@@ -67,7 +159,12 @@ body {
   color: var(--on-background);
   background: var(--bg-solid);
   position: relative;
-  /* No transition here — the fixed grid overlay handles theming without body-level repaints */
+  transition: background 0.4s ease;
+}
+
+/* Smooth theme switch on cards & text */
+h1, h2, h3, h4, p, span, a, .contact-input {
+  transition: color 0.4s ease, border-color 0.4s ease;
 }
 
 /* ======= Glass Card ======= */
@@ -75,7 +172,7 @@ body {
   background: var(--surface-container);
   backdrop-filter: blur(var(--glass-blur)) saturate(200%);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(200%);
-  border: 1px solid var(--outline);
+  border: 1px solid var(--border-gold);
   border-radius: 28px;
   box-shadow: var(--glass-shadow);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -111,34 +208,151 @@ body {
   box-shadow: var(--glass-shadow), 0 0 0 1px var(--shimmer) inset;
 }
 
-/* ======= Icon/circular buttons ======= */
-.icon-btn {
+/* ======= Golden gradient text (main headings + .gold-text) ======= */
+h1, .gold-text {
+  background-image: var(--gold-grad);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+  animation: gold-shimmer 4s linear infinite;
+}
+@keyframes gold-shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Card titles & sub-headings — champagne, semi-bold */
+h2, h3, h4 {
+  color: var(--champagne);
+  font-weight: 600;
+}
+
+/* Links & secondary text — taupe, gold on hover */
+.gold-link {
+  color: var(--taupe);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.gold-link:hover {
+  color: var(--gold-light);
+}
+
+/* ======= Butterfly arrow button ======= */
+.butterfly-btn {
+  position: relative;
   width: 2rem;
   height: 2rem;
   border-radius: 9999px;
-  border: 1px solid var(--outline);
-  background: var(--btn-bg);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  background: rgba(10, 10, 12, 0.55);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  color: var(--on-background-muted);
+  padding: 0;
+  transition: box-shadow 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.butterfly-btn:hover {
+  box-shadow: 0 0 34px rgba(212, 175, 55, 0.75), 0 0 10px rgba(252, 246, 186, 0.45);
+}
+.butterfly-btn:focus-visible {
+  outline: 1px solid rgba(212, 175, 55, 0.9);
+  outline-offset: 2px;
 }
 
-.icon-btn:hover,
-.bento-card:hover .icon-btn {
-  background: var(--btn-hover-bg);
-  color: var(--btn-hover-fg);
-  border-color: var(--btn-hover-bg);
+/* Layered transform targets — only transform/opacity animate (60fps) */
+.bfly-fly, .bfly-tilt, .bfly-svg, .bfly-sparkles { display: block; }
+.bfly-tilt { transform: rotate(45deg); } /* head points up-right = "next" */
+.bfly-svg {
+  overflow: visible;
+  animation: bfly-float 2.4s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes bfly-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
 }
 
-/* ======= Arrow Button ======= */
-.arrow-btn {
-  transition: transform 0.3s ease;
+/* Wings — transform-origin at the body, gentle idle flap */
+.bfly-wing {
+  transform-box: fill-box;
+  animation: bfly-flap 1.2s ease-in-out infinite;
 }
-.bento-card:hover .arrow-btn {
-  transform: rotate(45deg);
+.bfly-wing-ul, .bfly-wing-ll { transform-origin: 100% 50%; }
+.bfly-wing-ur, .bfly-wing-lr { transform-origin: 0% 50%; }
+.bfly-wing-ll, .bfly-wing-lr { animation-delay: -0.12s; } /* lower wings phase-offset */
+@keyframes bfly-flap {
+  0%, 100% { transform: scaleX(1); }
+  50%      { transform: scaleX(0.35); }
+}
+/* hover: faster flap (glow handled on .butterfly-btn:hover) */
+.butterfly-btn:hover .bfly-wing { animation-duration: 0.45s; }
+
+/* Flight — curved wavy path up-right, slight shrink + fade (~1.4s) */
+.butterfly-btn.bfly-flying .bfly-fly {
+  animation: bfly-flight 1.4s cubic-bezier(0.35, 0.5, 0.4, 1) forwards;
+  will-change: transform, opacity;
+}
+/* fast flap during flight (after :hover rule so it wins the tie) */
+.butterfly-btn.bfly-flying .bfly-wing { animation-duration: 0.15s; }
+@keyframes bfly-flight {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  12%  { transform: translate(4px, -9px) rotate(11deg) scale(0.97); opacity: 1; }
+  28%  { transform: translate(15px, -21px) rotate(-9deg) scale(0.92); opacity: 1; }
+  46%  { transform: translate(31px, -27px) rotate(10deg) scale(0.82); opacity: 0.95; }
+  63%  { transform: translate(49px, -43px) rotate(-8deg) scale(0.7); opacity: 0.78; }
+  81%  { transform: translate(71px, -53px) rotate(9deg) scale(0.55); opacity: 0.48; }
+  100% { transform: translate(98px, -74px) rotate(0deg) scale(0.4); opacity: 0; }
+}
+
+/* Fresh butterfly fades back in after the action */
+.butterfly-btn.bfly-returning .bfly-fly {
+  animation: bfly-return 0.5s ease-out forwards;
+}
+@keyframes bfly-return {
+  0%   { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Reduced-motion simple fade (JS adds .bfly-fading instead of .bfly-flying) */
+.butterfly-btn.bfly-fading .bfly-fly {
+  animation: bfly-simple-fade 0.28s ease forwards;
+}
+@keyframes bfly-simple-fade { to { opacity: 0; } }
+
+/* Golden sparkle particles left behind along the flight path */
+.bfly-sparkle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FCF6BA 0%, #D4AF37 55%, rgba(212, 175, 55, 0) 75%);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.butterfly-btn.bfly-flying .bfly-sparkle {
+  animation: bfly-sparkle 0.9s ease-out forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes bfly-sparkle {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx, 20px), var(--dy, -20px)) scale(0.2); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  h1, h2, h3, h4, .gold-text { animation: none; }
+  .bfly-svg, .bfly-wing { animation: none !important; }
+  .butterfly-btn.bfly-flying .bfly-fly,
+  .butterfly-btn.bfly-flying .bfly-sparkle { animation: none !important; }
 }
 
 .tool-icon {
@@ -153,10 +367,11 @@ body {
   animation: pulse-anim 2s infinite;
 }
 @keyframes pulse-anim {
-  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
-  70%  { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(var(--status-green-rgb), 0.55); }
+  70%  { box-shadow: 0 0 0 7px rgba(var(--status-green-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--status-green-rgb), 0); }
 }
+
 
 /* ======= Tools Marquee ======= */
 @keyframes marquee-scroll {
