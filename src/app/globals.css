@@ -266,9 +266,9 @@ h2, h3, h4 {
 }
 
 /* Layered transform targets — only transform/opacity animate (60fps) */
-.bfly-fly, .bfly-tilt, .bfly-svg, .bfly-sparkles { display: block; }
+.bfly-fly, .bfly-tilt, .bfly-svg, .bfly-stage, .bfly-sparkles { display: block; }
 .bfly-tilt { transform: rotate(45deg); } /* head points up-right = "next" */
-.bfly-svg {
+.bfly-svg, .bfly-stage {
   overflow: visible;
   animation: bfly-float 2.4s ease-in-out infinite;
   will-change: transform;
@@ -279,6 +279,21 @@ h2, h3, h4 {
 }
 
 /* Wings — transform-origin at the body, gentle idle flap */
+.bfly-wing-left {
+  animation: bfly-flap-l 1.2s ease-in-out infinite;
+}
+.bfly-wing-right {
+  animation: bfly-flap-r 1.2s ease-in-out infinite;
+}
+@keyframes bfly-flap-l {
+  0%, 100% { transform: scaleX(1); }
+  50%      { transform: scaleX(0.42); }
+}
+@keyframes bfly-flap-r {
+  0%, 100% { transform: scaleX(1); }
+  50%      { transform: scaleX(0.42); }
+}
+
 .bfly-wing {
   transform-box: fill-box;
   animation: bfly-flap 1.2s ease-in-out infinite;
@@ -291,7 +306,9 @@ h2, h3, h4 {
   50%      { transform: scaleX(0.35); }
 }
 /* hover: faster flap (glow handled on .butterfly-btn:hover) */
-.butterfly-btn:hover .bfly-wing { animation-duration: 0.45s; }
+.butterfly-btn:hover .bfly-wing,
+.butterfly-btn:hover .bfly-wing-left,
+.butterfly-btn:hover .bfly-wing-right { animation-duration: 0.45s; }
 
 /* Flight — curved wavy path up-right, slight shrink + fade (~1.4s) */
 .butterfly-btn.bfly-flying .bfly-fly {
@@ -299,7 +316,9 @@ h2, h3, h4 {
   will-change: transform, opacity;
 }
 /* fast flap during flight (after :hover rule so it wins the tie) */
-.butterfly-btn.bfly-flying .bfly-wing { animation-duration: 0.15s; }
+.butterfly-btn.bfly-flying .bfly-wing,
+.butterfly-btn.bfly-flying .bfly-wing-left,
+.butterfly-btn.bfly-flying .bfly-wing-right { animation-duration: 0.15s; }
 @keyframes bfly-flight {
   0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
   12%  { transform: translate(4px, -9px) rotate(11deg) scale(0.97); opacity: 1; }
@@ -350,7 +369,7 @@ h2, h3, h4 {
 
 @media (prefers-reduced-motion: reduce) {
   h1, h2, h3, h4, .gold-text { animation: none; }
-  .bfly-svg, .bfly-wing { animation: none !important; }
+  .bfly-svg, .bfly-stage, .bfly-wing, .bfly-wing-left, .bfly-wing-right { animation: none !important; }
   .butterfly-btn.bfly-flying .bfly-fly,
   .butterfly-btn.bfly-flying .bfly-sparkle { animation: none !important; }
 }

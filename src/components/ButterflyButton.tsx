@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useId, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 /* ─────────────────────────────────────────────────────────────
@@ -51,8 +51,6 @@ export function ButterflyButton({
   const router = useRouter();
   const btnRef = useRef<HTMLButtonElement>(null);
   const busyRef = useRef(false);
-  /* unique gradient id per instance (multiple buttons on one page) */
-  const gradId = `bfly-gold-${useId().replace(/:/g, "")}`;
 
   const runAction = useCallback(() => {
     if (href) router.push(href);
@@ -130,61 +128,106 @@ export function ButterflyButton({
     >
       <span className="bfly-fly" aria-hidden="true">
         <span className="bfly-tilt">
-          <svg
-            className="bfly-svg"
-            width={size}
-            height={size}
-            viewBox="0 0 64 64"
-            fill="none"
+          <span
+            className="bfly-stage"
+            style={{
+              position: "relative",
+              width: size,
+              height: size * (890 / 947),
+              display: "block",
+            }}
           >
-            <defs>
-              <linearGradient
-                id={gradId}
-                x1="6"
-                y1="8"
-                x2="58"
-                y2="56"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0" stopColor="#BF953F" />
-                <stop offset="0.25" stopColor="#FCF6BA" />
-                <stop offset="0.5" stopColor="#B38728" />
-                <stop offset="0.75" stopColor="#FBF5B7" />
-                <stop offset="1" stopColor="#AA771C" />
-              </linearGradient>
-            </defs>
+            {/* Left Wing — flaps horizontally around center body */}
+            <span
+              className="bfly-wing-left"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "50%",
+                height: "100%",
+                overflow: "hidden",
+                transformOrigin: "100% 50%",
+                willChange: "transform",
+              }}
+            >
+              <img
+                src="/golden_butterfly.png"
+                alt=""
+                draggable={false}
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  width: size,
+                  height: size * (890 / 947),
+                  maxWidth: "none",
+                  objectFit: "contain",
+                  filter: "drop-shadow(0 0 2.5px rgba(254, 240, 138, 0.45))",
+                }}
+              />
+            </span>
 
-            {/* upper wings */}
-            <g className="bfly-wing bfly-wing-ul" fill={`url(#${gradId})`}>
-              <path d="M30.8 18 C24 7 7 8 6.5 20 C6 30 20 34 30.8 30 Z" />
-            </g>
-            <g className="bfly-wing bfly-wing-ur" fill={`url(#${gradId})`}>
-              <path d="M33.2 18 C40 7 57 8 57.5 20 C58 30 44 34 33.2 30 Z" />
-            </g>
-            {/* lower wings */}
-            <g className="bfly-wing bfly-wing-ll" fill={`url(#${gradId})`}>
-              <path d="M30.8 32 C23 33 13 38 14.5 47 C16 54 27 51 30.8 41 Z" />
-            </g>
-            <g className="bfly-wing bfly-wing-lr" fill={`url(#${gradId})`}>
-              <path d="M33.2 32 C41 33 51 38 49.5 47 C48 54 37 51 33.2 41 Z" />
-            </g>
+            {/* Right Wing — flaps horizontally around center body */}
+            <span
+              className="bfly-wing-right"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: "50%",
+                width: "50%",
+                height: "100%",
+                overflow: "hidden",
+                transformOrigin: "0% 50%",
+                willChange: "transform",
+              }}
+            >
+              <img
+                src="/golden_butterfly.png"
+                alt=""
+                draggable={false}
+                style={{
+                  position: "absolute",
+                  left: -size * 0.5,
+                  top: 0,
+                  width: size,
+                  height: size * (890 / 947),
+                  maxWidth: "none",
+                  objectFit: "contain",
+                  filter: "drop-shadow(0 0 2.5px rgba(254, 240, 138, 0.45))",
+                }}
+              />
+            </span>
 
-            {/* slim body + head + antennae */}
-            <rect x="30.4" y="14" width="3.2" height="35" rx="1.6" fill={`url(#${gradId})`} />
-            <circle cx="32" cy="11.5" r="3" fill={`url(#${gradId})`} />
-            <path
-              d="M30.5 9.5 C28 6.5 25 5.5 23 6"
-              stroke={`url(#${gradId})`}
-              strokeWidth="1.2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M33.5 9.5 C36 6.5 39 5.5 41 6"
-              stroke={`url(#${gradId})`}
-              strokeWidth="1.2"
-              strokeLinecap="round"
-            />
-          </svg>
+            {/* Central Body & Antennae — stationary foreground to maintain anatomical stability */}
+            <span
+              style={{
+                position: "absolute",
+                top: 0,
+                left: "38%",
+                width: "24%",
+                height: "100%",
+                overflow: "hidden",
+                pointerEvents: "none",
+              }}
+            >
+              <img
+                src="/golden_butterfly.png"
+                alt=""
+                draggable={false}
+                style={{
+                  position: "absolute",
+                  left: -size * 0.38,
+                  top: 0,
+                  width: size,
+                  height: size * (890 / 947),
+                  maxWidth: "none",
+                  objectFit: "contain",
+                  filter: "drop-shadow(0 0 2.5px rgba(254, 240, 138, 0.45))",
+                }}
+              />
+            </span>
+          </span>
         </span>
       </span>
 
