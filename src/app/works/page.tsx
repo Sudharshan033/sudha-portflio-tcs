@@ -137,6 +137,81 @@ export default function Works() {
               </div>
             </div>
           </div>
+
+          {/* Project 4: HR Leadership & Governance */}
+          <div className="bento-card p-6 flex flex-col stagger-enter min-h-[300px] group overflow-hidden relative md:col-span-2 block" style={{ backgroundColor: "#121212" }}>
+            <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/40 to-yellow-900/20 mix-blend-overlay z-0 transition-transform duration-700 group-hover:scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="relative z-20 flex justify-between items-start">
+              <span className="font-label-mono text-[12px] text-white/70 bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10 uppercase">HR Governance</span>
+            </div>
+            
+            <div className="relative z-20 mt-auto pt-20">
+              <h3 style={T.regular(24, 2, 32, { color: "white", marginBottom: "8px", textTransform: "uppercase" })}>HR Leadership &amp; Governance</h3>
+              <p style={T.light(14, 1, 16, { color: "rgba(255,255,255,0.7)" })}>Led HR governance, policy implementation, compliance readiness, employee communication, workplace discipline, and timely resolution of people-related matters.</p>
+            </div>
+          </div>
+
+          {/* Project 5: Employee Experience & Wellbeing */}
+          <div className="bento-card p-6 flex flex-col stagger-enter min-h-[300px] group overflow-hidden relative block" style={{ backgroundColor: "#121212" }}>
+            <div className="absolute inset-0 bg-gradient-to-tr from-rose-950/40 to-pink-900/20 mix-blend-overlay z-0 transition-transform duration-700 group-hover:scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="relative z-20 flex justify-between items-start">
+              <span className="font-label-mono text-[12px] text-white/70 bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10 uppercase">Employee Experience</span>
+            </div>
+            
+            <div className="relative z-20 mt-auto pt-20">
+              <h3 style={T.regular(20, 1.5, 24, { color: "white", marginBottom: "8px", textTransform: "uppercase" })}>Employee Experience &amp; Wellbeing</h3>
+              <p style={T.light(14, 1, 16, { color: "rgba(255,255,255,0.7)" })}>Designed initiatives across engagement, preventive health, wellbeing, mental-health awareness, communication, and access to support resources.</p>
+            </div>
+          </div>
+
+          {/* Project 6: Transformation Program Leadership */}
+          <div className="bento-card p-6 flex flex-col stagger-enter min-h-[300px] group overflow-hidden relative block" style={{ backgroundColor: "#121212" }}>
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/40 to-purple-900/20 mix-blend-overlay z-0 transition-transform duration-700 group-hover:scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="relative z-20 flex justify-between items-start">
+              <span className="font-label-mono text-[12px] text-white/70 bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10 uppercase">Transformation</span>
+            </div>
+            
+            <div className="relative z-20 mt-auto pt-20">
+              <h3 style={T.regular(20, 1.5, 24, { color: "white", marginBottom: "8px", textTransform: "uppercase" })}>Transformation Program Leadership</h3>
+              <p style={T.light(14, 1, 16, { color: "rgba(255,255,255,0.7)" })}>Owned design and operations of enterprise capability programs: structure, participant coordination, delivery governance, dashboards, leadership updates, assessments, and results communication.</p>
+            </div>
+          </div>
+
+          {/* Project 7: Program Governance & Analytics */}
+          <div className="bento-card p-6 flex flex-col stagger-enter min-h-[300px] group overflow-hidden relative block" style={{ backgroundColor: "#121212" }}>
+            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-900/40 to-blue-900/20 mix-blend-overlay z-0 transition-transform duration-700 group-hover:scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="relative z-20 flex justify-between items-start">
+              <span className="font-label-mono text-[12px] text-white/70 bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10 uppercase">Analytics</span>
+            </div>
+            
+            <div className="relative z-20 mt-auto pt-20">
+              <h3 style={T.regular(20, 1.5, 24, { color: "white", marginBottom: "8px", textTransform: "uppercase" })}>Program Governance &amp; Analytics</h3>
+              <p style={T.light(14, 1, 16, { color: "rgba(255,255,255,0.7)" })}>Established structured planning, stakeholder coordination, performance tracking, ROI reporting, and continuous improvement.</p>
+            </div>
+          </div>
+
+          {/* Project 8: Cross-Functional Execution */}
+          <div className="bento-card p-6 flex flex-col stagger-enter min-h-[300px] group overflow-hidden relative block" style={{ backgroundColor: "#121212" }}>
+            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-900/40 to-teal-900/20 mix-blend-overlay z-0 transition-transform duration-700 group-hover:scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="relative z-20 flex justify-between items-start">
+              <span className="font-label-mono text-[12px] text-white/70 bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10 uppercase">Collaboration</span>
+            </div>
+            
+            <div className="relative z-20 mt-auto pt-20">
+              <h3 style={T.regular(20, 1.5, 24, { color: "white", marginBottom: "8px", textTransform: "uppercase" })}>Cross-Functional Execution</h3>
+              <p style={T.light(14, 1, 16, { color: "rgba(255,255,255,0.7)" })}>Partnered with HR, learning, talent acquisition, workplace services, safety, finance, business leadership, resource management, and social-impact teams.</p>
+            </div>
+          </div>
           
         </div>
 

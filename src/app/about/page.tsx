@@ -64,6 +64,9 @@ export default function About() {
           <h1 style={T.regular(32, 4, 56, { lineHeight: 1.1, textTransform: "uppercase", maxWidth: "800px" })}>
             STRATEGIC HR LEADER &amp; WORKFORCE TRANSFORMATION EXPERT.
           </h1>
+          <p className="mt-6 max-w-4xl" style={T.light(15, 1.2, 18, { color: "var(--muted-1)", lineHeight: 1.6 })}>
+            Strategic HR and transformation leader with experience across HR governance, employee experience, workforce alignment, learning and capability building, enterprise transformation, and program operations. Brings a structured, people-centered approach to translating organizational priorities into well-governed programs and meaningful employee initiatives. Combines HR leadership with delivery management, Agile ways of working, process improvement, facilitation, and digital and AI awareness.
+          </p>
         </div>
 
         {/* Main Content Layout */}
@@ -131,13 +134,231 @@ export default function About() {
           <div className="bento-card p-8 flex flex-col stagger-enter">
             <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "24px" })}>Certifications</span>
             <ul className="flex flex-col gap-4">
-              {["PSM II", "SAFe5", "Lean", "Six Sigma", "Green Belt Certified"].map((cert, i) => (
+              {[
+                "PSM II",
+                "SAFe5",
+                "Lean",
+                "Six Sigma",
+                "Green Belt Certified",
+                "Professional Scrum Master I",
+                "Certified SAFe 5 Agilist",
+                "Digital: Tech 4.0 Certified Professional (cloud computing, DevOps, machine learning exposure)",
+                "Diploma in Neuro-Linguistic Programming",
+                "Digital technology awareness: AI, Power BI, blockchain, cybersecurity, cloud computing, design thinking, cognitive technologies, Python"
+              ].map((cert, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#22c55e] mt-0.5 flex-shrink-0" />
-                  <span style={T.regular(16, 1.2, 18, { color: "var(--on-background)", lineHeight: 1.4 })}>{cert}</span>
+                  <span style={T.regular(15, 1.1, 17, { color: "var(--on-background)", lineHeight: 1.4 })}>{cert}</span>
                 </li>
               ))}
             </ul>
+          </div>
+          
+          {/* B) Core Expertise */}
+          <div className="bento-card p-8 flex flex-col stagger-enter md:col-span-3">
+            <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "20px" })}>
+              Core Expertise
+            </span>
+            <div className="flex flex-wrap gap-2.5">
+              {[
+                "HR Governance",
+                "Employee Experience",
+                "Workforce Alignment",
+                "Program Management",
+                "Change & Transformation",
+                "Stakeholder Management",
+                "Learning & Development",
+                "Capability Building",
+                "Wellbeing & Engagement",
+                "Strategic Planning",
+                "Performance Reporting",
+                "Process Improvement"
+              ].map((chip, i) => (
+                <span
+                  key={i}
+                  className="font-label-mono text-[12px] px-3.5 py-1.5 rounded-full border border-[var(--border-gold)] bg-[var(--btn-bg)] text-[var(--on-background)] uppercase tracking-wider backdrop-blur-sm transition-colors hover:border-[var(--outline-hover)]"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* C) Leadership & Functional Expertise */}
+          <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "HR & People Leadership",
+                bullets: [
+                  "Enterprise HR governance and policy alignment",
+                  "Employee engagement and experience programs",
+                  "Wellbeing, health, safety, and awareness initiatives",
+                  "Employee communication and HR connects",
+                  "Inclusive workplace and community-impact initiatives"
+                ]
+              },
+              {
+                title: "Learning & Capability Building",
+                bullets: [
+                  "Learning-needs analysis and competency-gap identification",
+                  "Development of learning strategies and interventions",
+                  "Regional talent-development and business-communication programs",
+                  "Faculty, facilitator, mentor, and capability-builder roles",
+                  "Tailored learning support for business requirements"
+                ]
+              },
+              {
+                title: "Transformation & Operations",
+                bullets: [
+                  "Program design and delivery governance",
+                  "Stakeholder coordination and leadership reporting",
+                  "Assessment, results, and program communications",
+                  "Dashboard and management-report preparation",
+                  "Budget awareness, ROI tracking, and performance metrics"
+                ]
+              },
+              {
+                title: "Delivery & Collaboration",
+                bullets: [
+                  "Delivery, project, and program management experience",
+                  "Multi-stakeholder and cross-functional collaboration",
+                  "Change management and structured execution",
+                  "Conflict resolution and problem solving",
+                  "Analytical thinking and continuous improvement"
+                ]
+              }
+            ].map((section, idx) => (
+              <div key={idx} className="bento-card p-6 flex flex-col stagger-enter">
+                <span style={T.light(11, 0.9, 13, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "12px", letterSpacing: "1px" })}>
+                  Leadership &amp; Functional Expertise
+                </span>
+                <h4 style={T.regular(17, 1.2, 19, { color: "var(--champagne)", marginBottom: "16px", textTransform: "uppercase" })}>
+                  {section.title}
+                </h4>
+                <ul className="flex flex-col gap-3 mt-auto">
+                  {section.bullets.map((bullet, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] mt-1.5 flex-shrink-0" />
+                      <span style={T.light(13, 0.95, 15, { color: "var(--on-background)", lineHeight: 1.5 })}>
+                        {bullet}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* D) Facilitation & Speaking */}
+          <div className="bento-card p-8 flex flex-col stagger-enter md:col-span-2">
+            <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "16px" })}>
+              Facilitation &amp; Speaking
+            </span>
+            <ul className="flex flex-col gap-3.5">
+              {[
+                "Business communication programs focused on articulation and impact",
+                "Critical thinking and problem-solving workshops",
+                "Team building, time management, and business etiquette",
+                "Interpersonal skills and emotional intelligence",
+                "Leadership and management development",
+                "Long-standing Toastmasters participation, including club leadership and mentoring experience"
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] mt-2 flex-shrink-0" />
+                  <span style={T.regular(15, 1.05, 17, { color: "var(--on-background)", lineHeight: 1.5 })}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* E) Domain Exposure */}
+          <div className="bento-card p-8 flex flex-col stagger-enter md:col-span-1">
+            <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "20px" })}>
+              Domain Exposure
+            </span>
+            <div className="flex flex-wrap gap-2.5">
+              {[
+                "Human Resources",
+                "Learning and Development",
+                "Delivery and Program Management",
+                "Banking and Financial Services",
+                "Telecom and Network Planning"
+              ].map((domain, i) => (
+                <span
+                  key={i}
+                  className="font-label-mono text-[12px] px-3.5 py-1.5 rounded-full border border-[var(--border-gold)] bg-[var(--btn-bg)] text-[var(--on-background)] uppercase tracking-wider backdrop-blur-sm transition-colors hover:border-[var(--outline-hover)]"
+                >
+                  {domain}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* F) Digital & Technical Exposure */}
+          <div className="bento-card p-8 flex flex-col stagger-enter md:col-span-2">
+            <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "20px" })}>
+              Digital &amp; Technical Exposure
+            </span>
+            <div className="flex flex-wrap gap-2.5">
+              {[
+                "AI in HR",
+                "Digital HR Transformation",
+                "Reporting & Visualization",
+                "Cognitive Technologies",
+                "Python Fundamentals",
+                "SQL Fundamentals",
+                "C and C++ Basics",
+                "Cloud Computing",
+                "DevOps",
+                "Machine Learning Awareness"
+              ].map((tech, i) => (
+                <span
+                  key={i}
+                  className="font-label-mono text-[12px] px-3.5 py-1.5 rounded-full border border-[var(--border-gold)] bg-[var(--btn-bg)] text-[var(--on-background)] uppercase tracking-wider backdrop-blur-sm transition-colors hover:border-[var(--outline-hover)]"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* G) Ways of Working */}
+          <div className="bento-card p-8 flex flex-col stagger-enter md:col-span-1">
+            <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "16px" })}>
+              Ways of Working
+            </span>
+            <ul className="flex flex-col gap-3.5">
+              {[
+                "Structured program governance and disciplined execution",
+                "Clear stakeholder communication and leadership updates",
+                "Ownership, prioritization, and closure orientation",
+                "Analytical problem solving and root-cause thinking",
+                "Adaptability in complex, multi-stakeholder environments",
+                "People-centered leadership and capability building"
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] mt-2 flex-shrink-0" />
+                  <span style={T.regular(14, 1, 16, { color: "var(--on-background)", lineHeight: 1.5 })}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* H) Professional Focus */}
+          <div className="bento-card p-8 md:p-12 flex flex-col items-center justify-center text-center stagger-enter md:col-span-3">
+            <span style={T.light(12, 1, 14, { color: "var(--muted-1)", textTransform: "uppercase", marginBottom: "16px", letterSpacing: "1px" })}>
+              Professional Focus
+            </span>
+            <blockquote
+              className="gold-text italic"
+              style={T.regular(18, 1.8, 26, { lineHeight: 1.5, maxWidth: "900px", margin: "0 auto" })}
+            >
+              &ldquo;Building people-centered HR practices and well-governed transformation programs that strengthen employee experience, organizational capability, and execution excellence.&rdquo;
+            </blockquote>
           </div>
           
         </div>

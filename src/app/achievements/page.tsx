@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
-import { ArrowUpRight, Trophy, Star, Medal } from "lucide-react";
+import { ArrowUpRight, Trophy, Star, Medal, Award } from "lucide-react";
 import { Plasma } from "@/components/Plasma";
 import { useTheme } from "@/components/ThemeProvider";
 
@@ -124,15 +124,34 @@ export default function Achievements() {
               
               <div className="relative z-20 mt-auto pt-20">
                 <h3 style={T.regular(20, 1.5, 24, { color: "white", marginBottom: "8px", textTransform: "uppercase" })}>Advanced NLP Practitioner</h3>
-                <p style={T.light(14, 1, 16, { color: "rgba(255,255,255,0.7)" })}>HIPE Canada - Certified Psychologist &amp; Hypnotherapist.</p>
+                <p style={T.light(14, 1, 16, { color: "rgba(255,255,255,0.7)" })}>Diploma in NLP • HIPE Canada - Certified Psychologist &amp; Hypnotherapist.</p>
               </div>
             </div>
 
-            <div className="stagger-enter flex flex-col gap-4 md:col-span-2 justify-center">
+            {/* Achievement 4 - Digital */}
+            <div className="bento-card p-6 flex flex-col stagger-enter min-h-[300px] group overflow-hidden relative md:col-span-2" style={{ backgroundColor: "#121212" }}>
+              <img src="/digital_tech_banner.png" alt="Digital Tech 4.0 Certification" className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 group-hover:scale-105 opacity-70" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-yellow-600/30 to-amber-900/20 mix-blend-overlay z-0 transition-transform duration-700 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent z-10 pointer-events-none"></div>
+              
+              <div className="relative z-20 flex justify-between items-start">
+                <span className="font-label-mono text-[12px] text-white/70 bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10 uppercase">Digital</span>
+                <div className="w-10 h-10 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full flex items-center justify-center">
+                  <Award className="w-5 h-5 text-amber-400" />
+                </div>
+              </div>
+              
+              <div className="relative z-20 mt-auto pt-20">
+                <h3 style={T.regular(24, 2, 32, { color: "white", marginBottom: "8px", textTransform: "uppercase" })}>Digital: Tech 4.0 Certified Professional</h3>
+                <p style={T.light(14, 1, 16, { color: "rgba(255,255,255,0.7)" })}>Exposure to cloud computing, DevOps, and machine learning.</p>
+              </div>
+            </div>
+
+            <div className="stagger-enter flex flex-col gap-4 md:col-span-3 justify-center">
               <div className="bento-card p-5 flex justify-between items-center group transition-colors">
                 <div>
                   <h4 style={T.regular(18, 1.5, 20, { color: "var(--on-background)", marginBottom: "4px", textTransform: "uppercase" })}>Agile &amp; Six Sigma Master</h4>
-                  <p style={T.light(12, 1, 14, { color: "var(--muted-1)" })}>PSM II, SAFe5, Lean, Six Sigma, Green Belt Certified</p>
+                  <p style={T.light(12, 1, 14, { color: "var(--muted-1)" })}>PSM I &amp; II, Certified SAFe 5 Agilist, Lean Six Sigma Green Belt</p>
                 </div>
                 <div className="w-10 h-10 rounded-full border border-[var(--outline)] flex items-center justify-center group-hover:bg-[var(--on-background)] group-hover:text-[var(--background)] transition-colors">
                   <Trophy className="w-5 h-5" />
